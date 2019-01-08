@@ -28,19 +28,28 @@ class app:
         self.loggingFormat = f'{colored("%(asctime)s", "white")} - !name - {colored("%(levelname)s", "red")} - %(message)s'
         self.client = pymongo.MongoClient(self.config.get('database', 'url'))
         self.emojitags = emojitags
+        file_handler = logging.FileHandler(filename='hexlightning.log')
+        stdout_handler = logging.StreamHandler(sys.stdout)
+        logging_handler = [file_handler, stdout_handler]
         if self.run_mode == 'debug':
             # 2018-10-25 16:22:04,046 - __main__ - DEBUG - Debugging
             loggingFormat = self.loggingFormat.replace(
                 '!name', colored("%(name)s", "red"))
-            logging.basicConfig(level=logging.DEBUG,
-                                format=loggingFormat)
+            logging.basicConfig(
+                level=logging.DEBUG,
+                format=loggingFormat,
+                handlers=logging_handler
+            )
             self.logger = logging.getLogger(__name__)
             self.logger.debug('Debugging')
         else:
             loggingFormat = self.loggingFormat.replace(
                 '!name', colored("%(name)s", "cyan"))
-            logging.basicConfig(level=logging.INFO,
-                                format=loggingFormat)
+            logging.basicConfig(
+                level=logging.INFO,
+                format=loggingFormat,
+                handlers=logging_handler
+            )
             self.logger = logging.getLogger(__name__)
             self.logger.info('Initializing...')
 
