@@ -1,0 +1,12 @@
+version: '2'
+services:
+  hex_db:
+    restart: always
+    image: mongo
+  hexlightning:
+    build: .
+    restart: always
+    links:
+     - hex_db
+    volumes:
+     - $PWD/config.txt:/app/config.txt
