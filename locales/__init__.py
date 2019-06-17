@@ -1,1 +1,1 @@
-from .i8n_tool import i8n
+from .i18n_tool import i18n
