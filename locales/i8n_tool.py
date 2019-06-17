@@ -7,12 +7,12 @@ from plugin import db_tools, db_parse
 
 class i8n_tool:
     def __init__(self):
-        self._ = gettext.gettext
         self.zh_cn = gettext.translation(
             'zh_CN', 'locale', languages=['zh_CN'])
         self.zh_tw = gettext.translation(
             'zh_TW', 'locale', languages=['zh_TW'])
         self.en = gettext.translation('en', 'locale', languages=['en'])
+
         self.lang = {'zh_tw': self.zh_tw, 'zh-hant': self.zh_tw,
                      'zh_cn': self.zh_cn, 'zh-hans': self.zh_cn,
                      'None': self.en, 'en': self.en}
