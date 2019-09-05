@@ -1,12 +1,25 @@
-version: '2'
+version: "2"
 services:
-  hex_db:
-    restart: always
+  db:
     image: mongo
-  hexlightning:
+    restart: always
+    volumes:
+      - ./data/mongodata:/data/db
+
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - ./data/redisdata:/data
+
+  bot:
     build: .
     restart: always
-    links:
-     - hex_db
     volumes:
-     - $PWD/config.txt:/app/config.txt
+      - ./:/app
+
+  nsfw:
+    build: ./nsfw_api
+    restart: always
+    volumes:
+      - ./nsfw/.:/opt/nsfw
