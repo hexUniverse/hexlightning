@@ -1,20 +1,17 @@
 import re
 import logging
+import coloredlogs
 import unicodedata
 
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='INFO')
 
-class dafuq:
-    '''
-    confidence: detector confidence.
-    max: the most freq lang
-    full: full lang
-    result: confidence > 0.3 return True.
-    '''
 
+class langdetec:
     def __init__(self):
-        logging.debug('init.')
+        logger.debug('Init')
 
-    def langdetecor(self, text, ban=['arabic', 'cyrillic']):
+    def detecor(self, text, ban=['arabic', 'cyrillic'], full=None):
         # pre process #
         text = ''.join(c for c in unicodedata.normalize(
             'NFC', text) if c <= '\uFFFF')
@@ -36,8 +33,6 @@ class dafuq:
         for category in cacu:
             cacu[category] = cacu[category]/total
         sorted_ = sorted(cacu.items(), key=lambda kv: kv[1])
-        if sorted_ == []:
-            sorted_ = [('無法偵測', 0)]
 
         self.confidence = sorted_[-1][1]
         self.max = sorted_[-1][0]

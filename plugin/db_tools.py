@@ -11,7 +11,7 @@ from pymongo.errors import ConnectionFailure
 
 ## init ##
 config = ConfigParser()
-config.read('config.txt')
+config.read('config.cfg')
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
