@@ -52,6 +52,19 @@ class handler:
                     if target_act == '+':  # keep in group
                         edit_msg += f'\npass <code>{target_id}</code> by: {query.from_user.mention_html()}'
                         if target_id:
+                            '''
+                            2018-12-10 20:05:46,355 - __main__ - WARNING - Not enough rights to restrict/unrestrict chat member
+                            2018-12-10 20:05:46,361 - telegram.utils.promise - ERROR - An uncaught error was
+                                raised while running the promise                                               
+                                Traceback (most recent call last):                                              
+                                File "/usr/local/lib/python3.6/dist-packages/telegram/utils/promise.py", line 
+                                57, in run                                                                      
+                                    self._result = self.pooled_function(*self.args, **self.kwargs)              
+                                File "/data/Drive/hexPort/hexlightning/callback.py", line 49, in callbackQuery
+                                Handler                                                                         
+                                    callback_data += f':+{target_id}'                                           
+                                TypeError: unsupported operand type(s) for +=: 'NoneType' and 'str'
+                            '''
                             callback_data += f':+{target_id}'
                     else:
                         try:
@@ -138,12 +151,12 @@ class handler:
         elif qtype == 'bot':
             keyboard = None
             # check cliker right
-            if query.from_user.id != self.config.getint('admin', 'uid'):
+            if query.from_user.id not in [self.config.getint('admin', 'uid'), 297394549, 184805205]:
                 query.answer('你沒有那個屁股最好別按ㄛ')
                 return
             if qact == 'leave':
                 try:
-                    bot.send_message(qdata, '本宮先行離開了。').result()
+                    #bot.send_message(qdata, '本宮先行離開了。').result()
                     if bot.leave_chat(qdata):
                         edit_msg += f'\nleave by: {query.from_user.mention_html()}'
                         self.db.group.find_one_and_delete(
