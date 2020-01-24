@@ -2,21 +2,10 @@ from hexlightning.functions.db_parse import group
 tmp = {
     "_id": "5c2246efa6def8057c7b7bbc",
     "chat": {
-        "title": "BL 原創小說群",
-        "id": -1001290601308,
+        "title": "小唯好嚴格 Q_Q",
+        "id": -100123456789,
         "config": {
-            "subscribe": [
-                "🤡",
-                "🔞",
-                "👶",
-                "😈",
-                "💪",
-                "👺",
-                "🤖",
-                "💰",
-                "💩",
-                "😘"
-            ],
+            "subscribe": ["spam", "ads"],
             "id": 7515,
             "admins": True,
             "ml_nsfw": True,
@@ -27,5 +16,8 @@ tmp = {
 
 
 def test_group_parser():
+    """
+    > True
+    """
     result = group.Group(tmp)
     assert type(result.parse()) is group.JsonObj

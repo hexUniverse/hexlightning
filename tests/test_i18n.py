@@ -4,12 +4,11 @@ from pyrogram import Client, Message
 
 
 def test_i18n():
-
+    """
+    > 嗨 我是 hexlightning
+    """
     @i18n()
     def test_i18n_(client: Client, message: Message):
-        """
-        > I'm hexlightning
-        """
-        print(_('我是海克斯'))
+        assert _('嗨') == '嗨 我是 hexlightning'
 
     test_i18n_(Client, Message)
