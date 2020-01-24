@@ -8,7 +8,7 @@
 
 - 歡迎加入我們的 [hex 神界](https://t.me/hexuniverse)
 
-![python](https://img.shields.io/badge/python-3.6%2B-blue.svg)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6c69b000751e4bfabe1ec47efe58500b)](https://www.codacy.com/gh/hexUniverse/hexlightning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hexUniverse/hexlightning&amp;utm_campaign=Badge_Grade)
+![python](https://img.shields.io/badge/python-3.6%2B-blue.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6c69b000751e4bfabe1ec47efe58500b)](https://www.codacy.com/gh/hexUniverse/hexlightning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hexUniverse/hexlightning&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/e659d39e9e4c48858dc21fd1fc426295)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=tasi788/hexlightning&utm_campaign=Badge_Coverage)
 
 # 我們是什麼
 
