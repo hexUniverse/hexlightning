@@ -17,7 +17,6 @@ jobs:
           Action Trigger
           ==========
           Repo: `${{ github.repository }}`
-          Actor: `${{ github.actor }}` `${{ github.event_name }}`
           Commit: `${{ github.sha }}`
           ==========
     - uses: actions/checkout@v1
@@ -38,4 +37,4 @@ jobs:
       run: |
         export CODACY_PROJECT_TOKEN=${{ secrets.codecay_token }}
         python-codacy-coverage -r coverage.xml
-    
+
