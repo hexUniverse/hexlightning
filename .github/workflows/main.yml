@@ -1,12 +1,25 @@
-name: Build Test
+name: Run pytest
 
 on: [push]
 
 jobs:
-  hexlightning:
+  pytest:
     runs-on: ubuntu-latest
-    name: build-hex
+    name: run pytest
     steps:
+    - name: Send Notify
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.chat_id }}
+        token: ${{ secrets.bot_token }}
+        format: markdown
+        message: |
+          Action Trigger
+          ==========
+          Repo: `${{ github.repository }}`
+          Actor: `${{ github.actor }}` `${{ github.event_name }}`
+          Commit: `${{ github.sha }}`
+          ==========
     - uses: actions/checkout@v1
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
@@ -16,21 +29,13 @@ jobs:
       run: |
         python -m pip install -U pip
         pip install -r requirements.txt
-    - name: Test with pytest
+    - name: run pytests
+      continue-on-error: true
       run: |
         pip install pytest
-        pytest tests
-    - name: Send Notify
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.chat_id }}
-        token: ${{ secrets.bot_token }}
-        format: markdown
-        message: |
-          Action Trigger `${{ job.status }}`
-          ==========
-          Repo: `${{ github.repository }}`
-          Actor: `${{ github.actor }}` `${{ github.event_name }}`
-          Workflow: `${{ github.workflow }}`
-          Commit: `${{ github.sha }}`
-          ==========
+        pytest --cov=hexlightning --cov-report=xml --rootdir=./hexlightning tests
+    - name: upload codecov
+      run: |
+        export CODACY_PROJECT_TOKEN=${{ secrets.codecay_token }}
+        python-codacy-coverage -r coverage.xml
+    
