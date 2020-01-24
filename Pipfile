@@ -1,0 +1,28 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8 = "*"
+pytest-cov = "*"
+codacy-coverage = "*"
+pylint = "*"
+
+[packages]
+python-dateutil = "*"
+coloredlogs = "*"
+json5 = "*"
+xmltodict = "*"
+requests = "*"
+redis = "*"
+pymongo = "*"
+numpy = "*"
+scipy = "*"
+pika = "*"
+tgcrypto = "*"
+pillow = "*"
+pyrogram = {git = "https://github.com/pyrogram/pyrogram.git"}
+
+[requires]
+python_version = "3.7"
