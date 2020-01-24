@@ -8,6 +8,7 @@ autopep8 = "*"
 pytest-cov = "*"
 codacy-coverage = "*"
 pylint = "*"
+pytest = "*"
 
 [packages]
 python-dateutil = "*"
