@@ -1,2 +1,16 @@
+#cache
+__pycache__
 
-tests/__pycache__/
+.DS_Store
+
+#config.txt
+*.ipynb
+
+.venv
+.idea
+.vscode
+mongodb/
+
+redis_data/
+
+*.session
