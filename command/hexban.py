@@ -13,7 +13,6 @@ from plugin import db_parse, db_tools, config, homicide, excalibur, imagehash
 from plugin import sage, banyourwords, sticker_judge
 from plugin import druation, emojitags, to_emoji
 from locales import i18n
-#import pysnooper
 taiwan_country = tz.gettz('Asia/Taipei')
 mongo = db_tools.use_mongo()
 redis = db_tools.use_redis()
@@ -138,7 +137,6 @@ def hexban_reply(bot, update):
             file = bytes(
                 update.message.reply_to_message.photo[-1].get_file().download_as_bytearray())
             bio = io.BytesIO(file)
-            #hashing = str(imagehash.phash(bio))
             i = imagehash.hashing(bio)
             hashing = i.phash()
 

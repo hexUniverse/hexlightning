@@ -19,8 +19,6 @@ _ = gettext.gettext
 
 @run_async
 def last_exlie(bot, update):
-    # i18n(update).loads.install(True)
-    # i18n(update).loads.install(True)
     forward = None
     if update.message.forward_from:
         forward = update.message.forward_from
@@ -50,10 +48,6 @@ def last_exlie(bot, update):
             return
 
         if forward_check and forward_check.current:
-            # try:
-            #    update.message.delete()
-            # except:
-            #    pass
             keeps = False
             try:
                 update.message.from_user.fullname = update.message.from_user.full_name
@@ -160,9 +154,7 @@ def last_exlie(bot, update):
 
     if forward_check:
         # 轉傳是 until 0
-        # insert = False
         if forward_check.current.until == 0:
-            # bot, update, inherit_from, inherit_to
             inherit_excalibur(bot, update, forward_check)
 
         # 轉傳不是 until 0
@@ -171,31 +163,13 @@ def last_exlie(bot, update):
                 if forward_check.current.until > user_check.current.until:
                     logger.info(forward_check.current.until)
                     logger.info(user_check.current.until)
-                    # update_user = {
-                    #    '$set': {'current': forward_check.current_raw},
-                    #    '$push': {'history': user_check.current_raw}}
                     inherit_excalibur(bot, update, forward_check)
             # 檢查 ban 比較久的有沒有被繼承
             # 這樣ㄛ！！
                 else:
                     return
             elif user_check == False:
-                # update_user = {
-                #    '$set': {'current': forward_check.current_raw}}
                 inherit_excalibur(bot, update, forward_check)
-            # else:
-            #    # 繼承
-            #    insert = True
-            #    forward_check.current_raw['inherit_id'] = forward_check.id
-            #    forward_check.current_raw['inherit_chat'] = update.message.chat.id
-            #    update_user = {'current': forward_check.current_raw}
-            #    update_user.update(
-            #        {'chat': update.message.from_user.to_dict()})
-        # if update_user and insert:
-        #    mongo.user.insert(update_user)
-        # elif update_user:
-        #    mongo.user.find_one_and_update(
-        #        {'chat.id': update.message.from_user.id}, update_user)
         update_ban = {
             '$addToSet': {
                 'chat.banned_participate': update.message.chat.id},

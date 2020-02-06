@@ -58,7 +58,6 @@ class app:
             print('\nExit;')
         except ConnectionFailure:
             self.logger.critical('DB DOWN...!!')
-            # sys.exit()
         else:
             self.logger.info('Listening...')
         finally:
@@ -66,7 +65,6 @@ class app:
                 inherit=self,
                 token=self.config.get('bot', 'token'),
             )
-        # self.logger.info('\nExit.')ˋ
 
 
 ansciiArtHex = '''

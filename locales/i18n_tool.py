@@ -34,23 +34,15 @@ class i18n(i18n_tool):
         self.loads = self.loads_()
 
     def loads_(self):
-
-        # if Filters.group(self.update.message):
-        #    self.query = self.mongo.user.find_one(
-        #        {'chat.id': self.update.message.chat.id})
-        # else:
         self.query = self.mongo.user.find_one(
             {'chat.id': self.update.message.from_user.id})
 
-        # if self.query:
         user = db_parse.user()
         user.parse(self.query)
         if user.config.lang:
-            # print(user.config.lang)
             if user.config.lang.lower() in self.lang.keys():
                 return self.lang[user.config.lang]  # .install(True)
             else:
                 print(self.lang.keys())
                 print('not in ')
 
-            # self.lang[user.lang_code].install(True)

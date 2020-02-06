@@ -42,7 +42,6 @@ def extend_links(bot, update, inherit, cmd=None):
         update.message.text_html), re.IGNORECASE)
     if len(result) == 0:
         return False
-    #result = []
     extract_result = checker_result()
     extract_result.tags = []
     extract_result.name = ''
@@ -59,7 +58,6 @@ def extend_links(bot, update, inherit, cmd=None):
         ## Do All Checker ##
         for checker in check_list:
             result_ = checker(bot, update, real_url)
-            # result.append(result_)
             if result_.name:
                 extract_result.name += result_.name
                 extract_result.tags.extend(result_.tags)

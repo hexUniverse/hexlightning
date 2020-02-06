@@ -54,8 +54,6 @@ def announce(
 
     text = ''
     if query_user:
-        # user = db_parse.user()
-        # user.parse(query_user)
         user = query_user
         if uid < 0:
             if query_user:
@@ -63,7 +61,6 @@ def announce(
         else:
             if query_user:
                 if user.fullname:
-                    #
                     text += _(
                         f'名字：<a href="tg://user?id={user.id}">{user.fullname}</a>\n')
     tags_text = ', '.join(tags)
@@ -151,7 +148,6 @@ def inherit_excalibur(bot, update, inherit_from: db_parse.user):
     '''
     mongo = db_tools.use_mongo()
     query_user = mongo.user.find_one({'chat.id': update.message.from_user.id})
-    # user_ = db_parse.user()
     if query_user is None:
         user_update = {'chat': update.message.from_userto_dict()}
         mongo.user.insert(user_update)
@@ -175,9 +171,6 @@ def inherit_excalibur(bot, update, inherit_from: db_parse.user):
         },
         'evidence': inherit_from.current.evidence
     }}
-    #current['inherit']['id'] = inherit_from.id
-    #current['inherit']['chat']['id'] = update.message.chat.id
-    #current['inherit']['evidence'] = inherit_from.current.evidence
     current['evidence'] = evidence
     current.update(update_user)
     logger.info(current)

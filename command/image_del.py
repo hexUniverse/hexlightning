@@ -15,7 +15,6 @@ def image_del(bot, update):
         bio = io.BytesIO(file)
         i = imagehash.hashing(bio)
         hashing = i.phash()
-        # if bool(mongo.xmedia.find_one({'photo.hash': hashing})):
         update_xmedia = {
             '$set': {'photo.hash': hashing, 'photo.is_white': False}}
         mongo.xmedia.find_one_and_update(

@@ -68,9 +68,6 @@ def admins_text(bot, update, args=''):
 
                 mention += users.user.mention_html() + '\n'
             return mention
-            # bot.send_message(chat_id=update.message.chat.id,
-            #                 text=mention,
-            #                 parse_mode='HTML')
     elif len(args) == 1:
         if args[0].startswith('https://t.me/'):
             args[0] = args[0].replace('https://t.me/', '@')
@@ -123,23 +120,12 @@ def admins_text(bot, update, args=''):
 
                     mention += users.user.mention_html() + '\n'
                 return mention
-                # bot.send_message(chat_id=update.message.chat.id,
-                #                 text=mention,
-                #                 parse_mode='HTML')
             except TelegramError:
                 return '<b>錯誤</b> 檢查輸入的內容'
-                # bot.send_message(chat_id=update.message.chat.id,
-                #                 text=_('<b>錯誤</b> 檢查輸入的內容'),
-                #                 parse_mode='HTML')
         else:
             return '傳送 <b>@groupname</b> 或群組 UID.'
-            # bot.send_message(chat_id=update.message.chat.id,
-            #                 text=_('傳送 <b>@groupname</b> 或群組 UID.'),
-            #                 parse_mode='HTML')
     else:
         return '不要停！！嗯嗯 ... 你給太多參數了！恩...'
-        # bot.send_message(chat_id=update.message.chat.id,
-        #                 text=_('不要停！！嗯嗯 ... 你給太多參數了！恩...'))
 
 
 def admins(bot, update):

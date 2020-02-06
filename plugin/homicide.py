@@ -27,7 +27,6 @@ def extinguish(bot, update, target: 'input chat.id and uid with int in tuple'):
                 redis.lrem(f'msg:{chat}', data, num=1)
 
 
-# @run_async
 def homicide(bot, update, target: 'input uid with int'):
     '''
     列舉 UID 所參與的群組，然後幹他
@@ -62,7 +61,6 @@ def homicide(bot, update, target: 'input uid with int'):
                         if user.current.reason:
                             text += _(banyourwords.banyourwords.forever.format(
                                 reason=user.current.reason))
-                            #text += _(banyourwords.forever.format(reason=user.current.reason))
                         else:
                             text += _(banyourwords.banyourwords.forever.format(
                                 reason=user.current.tags_text))
@@ -87,8 +85,6 @@ def homicide(bot, update, target: 'input uid with int'):
                         _(f'證據：https://t.me/hexevidence{user.current.evidence}\n') + \
                         _(f'標籤：{user.current.tags_text}\n')
                     if user.current.until_date.year < 2019:
-                        # text += '{text}'.format(_(text=config.get('word',
-                        #
                         if user.current.reason:
                             text += _(banyourwords.banyourwords.forever.format(
                                 reason=user.current.reason))
@@ -123,12 +119,8 @@ def homicide(bot, update, target: 'input uid with int'):
                 else:
                     reason = user.current.tags_text
                 if user.current.until_date.year < 2019:
-                    # text += _('因為 <code>{reason}</code> 而被琦玉用 <code>普通連續拳</code> 永久揍飛於宇宙之外。').format(
-                    #    reason=reason)
                     text += _(banyourwords.banyourwords.forever.format(reason=reason))
                 else:
-                    # text += _('因為 <code>{reason}</code> 而被琦玉用 <code>普通連續拳</code> 暫時揍飛於宇宙之外\n封鎖到：<code>{date}</code>').format(
-                    #    reason=reason, date=user.current.until_text)
                     text += _(banyourwords.banyourwords.temp.format(reason=reason,
                                                                     date=user.current.until_text))
                 text += _(f'\n處刑人：{user.current.opid}\n') + \

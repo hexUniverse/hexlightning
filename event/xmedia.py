@@ -66,7 +66,6 @@ def xmedia(bot, update):
         {'photo.indexing': {'$gte': middle - 10, '$lte': middle + 10}}))
     if query_xmedia == []:
         logger.info('no target found')
-        # return
     if query_xmedia:
         compare_list = []
         for parse in query_xmedia:
@@ -94,20 +93,11 @@ def xmedia(bot, update):
             else:
                 return
 
-            # query_xmedia = mongo.xmedia.find_one(
-            #    {'photo.hash': compare_result[-1].hash})
-            #media_ = db_parse.media()
-            # media_.parse(query_xmedia)
-
             check = bool(
                 set(group.config.sub_ban_list).intersection(list(media.tags)))
-            # logger.info(media.tags)
-            # update.message.reply_text(media.tags)
             if not check:
                 pass
             else:
-                # query_user = mongo.user.find_one(
-                #    {'chat.id': update.message.from_user.id})
                 try:
                     sent = update.message.forward(
                         config.getint('log', 'evidence')).message_id

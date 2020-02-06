@@ -46,7 +46,6 @@ def banstat_chat(bot, update):
                     _(f'UID：<code>{update.message.reply_to_message.forward_from_chat.id}</code>\n') + \
                     _(f'頻道未被封鎖')
             return text
-            #update.message.reply_text(text, parse_mode='html')
         else:
             if update.message.reply_to_message.forward_from:
                 update.message.from_user = update.message.reply_to_message.forward_from
@@ -55,7 +54,6 @@ def banstat_chat(bot, update):
                 return _('找不到目標！\n可能來源訊息沒有連結到發送者帳號。')
 
     else:
-        # if update.message.reply_to_message.from_user:
         update.message.from_user = update.message.reply_to_message.from_user
         return banstat_user(bot, update)
 

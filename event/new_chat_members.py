@@ -86,8 +86,6 @@ def new_chat_members(bot, update):
             upsert=True
         )
 
-    # elif update.message.from_user.id ==
-    # update.message.new_chat_members[0].id:
     else:
         '''
         new chat member flow
@@ -98,7 +96,6 @@ def new_chat_members(bot, update):
             - kick, return
         - sent to abyss channel and record
         '''
-        # update.message.from_user.id == update.message.new_chat_members[0].id
         for new_member in update.message.new_chat_members:
             border_keeper = gatejieitai(
                 bot, update, (update.message.chat.id, new_member.id))

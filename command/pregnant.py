@@ -1,8 +1,6 @@
 from plugin import sage, db_tools
-#import pysnooper
 
 
-# @pysnooper.snoop()
 def pregnant(bot, update, args):
     # /add 123 lucifer
     mongo = db_tools.use_mongo()

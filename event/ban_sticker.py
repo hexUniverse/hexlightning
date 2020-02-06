@@ -54,11 +54,6 @@ def ban_sticker(bot, update):
         bot, update, update.message.sticker.set_name)
 
     if ban:
-        # query_banned = redis.lrange('ban_cache', 0, -1)
-        # user_id = str(update.message.from_user.id)
-        # if user_id.encode() in query_banned:
-        #    logger.critical('user in banned')
-        #    return
         try:
             evidence = update.message.forward(config.getint('log', 'evidence'))
         except BaseException:
@@ -67,10 +62,6 @@ def ban_sticker(bot, update):
         if update.message.sticker.set_name:
             query_stiker = mongo.sticker.find_one(
                 {'sticker.set_name': update.message.sticker.set_name})
-        # does not exists anymore :(
-        # else:
-        #    query_stiker = mongo.sticker.find_one(
-        #        {'sticker.id': update.message.sticker.file_id})
         if query_stiker:
             sticker = db_parse.sticker()
             sticker.parse(query_stiker)
@@ -90,9 +81,6 @@ def ban_sticker(bot, update):
                 set(group.config.sub_ban_list).intersection(sticker.tags_list))
             logger.debug(
                 f'sticker compare with group sub is {check}, should ban')
-
-            # query_user = mongo.user.find_one('chat.id':
-            # update.message.from_user.id)
 
             if not check:
                 return
@@ -163,20 +151,6 @@ def ban_sticker(bot, update):
                 pass
 
             homicide(bot, update, update.message.from_user.id)
-            # try:
-            #    bot.kick_chat_member(update.message.chat.id,
-            #                         update.message.from_user.id)
-            # except:
-            #    pass
-            # else:
-            #    update_user = {
-            #        '$addToSet': {
-            #            'chat.banned_participate': update.message.chat.id},
-            #        '$pull': {'chat.participate': update.message.chat.id}
-            #    }
-
-            #    mongo.user.find_one_and_update(
-            #        {'chat.id': update.message.from_user.id}, update_user)
 
 
 '''

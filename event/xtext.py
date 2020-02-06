@@ -52,9 +52,7 @@ def xfilter_refresh():
 
     result = mongo.xtext_filter.find()
     redis.delete('xtext_filter')
-    # result = redis.lrange('xtext_filter', 0, -1)
     for x in list(result):
-        # filters.append(x['rule'])
         redis.lpush('xtext_filter', x['rule'])
     return True
 
@@ -127,7 +125,6 @@ def xtext(bot, update):
     if excute.name == '':
         return
 
-    # list(to_emoji(excute.tags))
     day = druation(list(dict.fromkeys(excute.tags)))
     tags = list(list(dict.fromkeys(excute.tags)))
     action = to_emoji(list(dict.fromkeys(excute.action)))
@@ -151,7 +148,6 @@ def xtext(bot, update):
         except BadRequest as e:
             if e.message == "Message can't be deleted":
                 right = True
-                # text +=
     if 'restrict' in action:
         try:
             bot.restrict_chat_member(
@@ -162,7 +158,6 @@ def xtext(bot, update):
     if 'alert' in action:
         try:
             pass
-            #update.message.forward(config.getint('admin', 'office'))
         except BadRequest as e:
             text = f'#error #{__name__}\n'
             f'message: {e.message}\n'

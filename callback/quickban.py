@@ -32,8 +32,6 @@ def quickban(bot, update):
         query.edit_message_text(text, parse_mode='html')
         return
     try:
-        # sent = bot.forward_message(config.getint(
-        #    'log', 'evidence'), config.getint('admin', 'elf'), int(msg_id))
         sent = update.message.forward(config.getint('log', 'evidence'))
     except BaseException:
         sent = 2

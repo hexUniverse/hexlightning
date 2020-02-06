@@ -8,7 +8,6 @@ chart = pygal.Pie()
 mongo = db_tools.use_mongo()
 
 
-# @pysnooper.snoop()
 def abuser(bot, update):
     if sage.lucifer(update.message.from_user.id) != True:
         update.message.reply_text('嘻嘻 等級不夠')
@@ -41,7 +40,5 @@ def abuser(bot, update):
         chart.add(user.fullname, record[1])
         text += f'{user.mention_html} - {record[1]}\n'
 
-    # bar_chart.render_to_file('pie.svg')
     chart.render_to_png('pie.png')
-    # chart.render_in_browser()
     update.message.reply_html(text)

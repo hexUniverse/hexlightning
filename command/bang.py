@@ -29,8 +29,6 @@ def bang(bot, update):
     if sage.is_sage(update.message.from_user.id):
         pass
     else:
-        # user = bot.get_chat_member(
-        #    update.message.chat.id, update.message.from_user.id)
         if is_admin(bot, update):
             pass
         else:

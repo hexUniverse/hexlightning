@@ -15,7 +15,6 @@ checker_list = [dexcoin_spam, mdfk_ads,
 @run_async
 def checker(bot, update, new_member):
     # halal 合併 /name
-    # i18n(update).loads.install(True)
     locales.i18n(update).loads.install(True)
     mongo = db_tools.use_mongo()
     user = db_parse.user()
@@ -26,10 +25,8 @@ def checker(bot, update, new_member):
     group.parse(query_group)
     for check in checker_list:
         do_check = check()
-        # return (True, 'QQ_Spam', result)
         checker_result, checker_name, checker_match = do_check.detect(
             new_member.full_name.lower())
-        # print(do_check.detect(new_member.full_name.lower()))
         if group.config is None:
             # 無心市政
             # 城市不築 敗事有瑜

@@ -99,7 +99,6 @@ class handler:
                                     edit_msg += '\n' + e.message
                                     if e.message == 'Have no rights to send a message':
                                         pass
-                                # bot.leave_chat(target_chat_id)
                                 callback_data = None
                             elif e.message == 'Forbidden: bot is not a member of the supergroup chat':
                                 query.answer('bot 並不在該群。', show_alert=True)
@@ -169,7 +168,6 @@ class handler:
                 return
             if qact == 'leave':
                 try:
-                    #bot.send_message(qdata, '本宮先行離開了。').result()
                     if bot.leave_chat(qdata):
                         edit_msg += f'\nleave by: {query.from_user.mention_html()}'
                         self.db.group.find_one_and_delete(

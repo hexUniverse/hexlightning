@@ -35,10 +35,6 @@ def namechecker(bot, update):
     else:
         edit_msg = query.message.caption_html
 
-    # if len(query.data.split()) < 3:
-    #    qtype = query.data
-    # else:
-    #    qtype, qact, qdata = query.data.split()
     if callback.qtype == 'user':
         target_chat_id, *targets = callback.qdata.split(':')
         if callback.qact == 'bypass':
@@ -77,7 +73,6 @@ def namechecker(bot, update):
                                 edit_msg += '\n' + e.message
                                 if e.message == 'Have no rights to send a message':
                                     pass
-                            # bot.leave_chat(target_chat_id)
                             callback_data = None
                         elif e.message == 'Forbidden: bot is not a member of the supergroup chat':
                             query.answer('bot 並不在該群。', show_alert=True)
