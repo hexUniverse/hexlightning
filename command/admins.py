@@ -155,8 +155,18 @@ def admins(bot, update):
         update.message.reply_html(admin_)
         if Filters.reply(update.message):
             text = '#report\n' + info(bot, update, gettext=True).result()
-            sent = bot.forward_message(config.getint(
-                'admin', 'elf'), update.message.chat.id, update.message.reply_to_message.message_id)
+            sent = bot.forward_message(
+                config.getint(
+                    'admin',
+                    'elf'),
+                update.message.chat.id,
+                update.message.reply_to_message.message_id)
             keyboard = quickban(bot, update, sent.message_id)
-            bot.send_message(config.getint('admin', 'elf'),
-                            text, reply_to_message_id=sent.message_id, reply_markup=keyboard, parse_mode='html')
+            bot.send_message(
+                config.getint(
+                    'admin',
+                    'elf'),
+                text,
+                reply_to_message_id=sent.message_id,
+                reply_markup=keyboard,
+                parse_mode='html')

@@ -29,7 +29,7 @@ class user:
         self.history = None
 
     def parse(self, data):
-        if data == None:
+        if data is None:
             return None
         self.parse_data = data
         user = data['chat']
@@ -158,7 +158,7 @@ class group:
         self.config_list_k = {}
 
     def parse(self, data):
-        if data == None:
+        if data is None:
             return None
         chat = data['chat']
         if 'config' in chat.keys():
@@ -167,7 +167,11 @@ class group:
             for content in chat['config']:
                 self.config_list[content] = chat['config'][content]
                 # self.config_list.append(content)
-                if content not in ['lang_code', 'configuring', 'sub_ban_list', 'all']:
+                if content not in [
+                    'lang_code',
+                    'configuring',
+                    'sub_ban_list',
+                        'all']:
                     self.config_list_k[content] = chat['config'][content]
 
         if 'title' in chat.keys():
@@ -247,7 +251,7 @@ class media:
         if 'hash' in data['photo'].keys():
             try:
                 self.hash = data['photo']['hash']
-            except:
+            except BaseException:
                 logger.critical(data)
         if 'score' in data['photo'].keys():
             self.score = data['photo']['score']

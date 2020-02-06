@@ -96,7 +96,7 @@ def xtext(bot, update):
     extend = extend_links(bot, update, text).result()
     excute = excute_()
 
-    if extend == False:
+    if not extend:
         for rule in cache:
             checker = re.findall(rule.decode(), text)
             if checker:
@@ -107,13 +107,17 @@ def xtext(bot, update):
                     try:
                         evidence = update.message.forward(
                             config.getint('log', 'evidence')).message_id
-                    except:
+                    except BaseException:
                         evidence = 2
                     else:
                         send_text = f'Sender: {update.message.from_user.mention_html()}\n' +\
                                     f'ID: {update.message.from_user.id}'
-                        bot.send_message(config.getint(
-                            'log', 'evidence'), send_text, reply_to_message_id=send_text.message_id)
+                        bot.send_message(
+                            config.getint(
+                                'log',
+                                'evidence'),
+                            send_text,
+                            reply_to_message_id=send_text.message_id)
                     excute.parse(rule_result)
                 else:
                     return False
@@ -132,7 +136,8 @@ def xtext(bot, update):
     if query_group:
         group = db_parse.group()
         group.parse(query_group)
-        if bool(set(group.config.sub_ban_list).intersection(list(to_emoji(tags)))):
+        if bool(set(group.config.sub_ban_list).intersection(
+                list(to_emoji(tags)))):
             pass
         else:
             return
@@ -179,8 +184,15 @@ def xtext(bot, update):
     else:
         until = (datetime.now(taiwan_country) +
                  timedelta(days=day)).timestamp()
-    excalibur(bot, update, update.message.from_user.id, tags,
-              bot.id, until=until, reason=f'hex auto.{excute.name}', evidence=evidence)
+    excalibur(
+        bot,
+        update,
+        update.message.from_user.id,
+        tags,
+        bot.id,
+        until=until,
+        reason=f'hex auto.{excute.name}',
+        evidence=evidence)
     sent = update.message.reply_html(text).result()
     time.sleep(10)
     sent.delete()

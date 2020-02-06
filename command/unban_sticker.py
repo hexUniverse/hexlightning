@@ -6,13 +6,13 @@ mongo = db_tools.use_mongo()
 
 def unban_sticker(bot, update):
     if Filters.reply(update.message):
-        if update.message.reply_to_message.sticker.set_name == None:
+        if update.message.reply_to_message.sticker.set_name is None:
             return
         elif update.message.reply_to_message.sticker.set_name:
             set_name = update.message.reply_to_message.sticker.set_name
     else:
         set_name = search('s={:S}', update.message.text)
-        if set_name == None:
+        if set_name is None:
             update.message.reply_text('缺少 <code>s=</code> 參數')
             return
         else:

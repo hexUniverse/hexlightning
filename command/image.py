@@ -28,7 +28,7 @@ def image(bot, update):
     nsfw = nsfw_detect(file)
 
     query_xmedia = list(mongo.xmedia.find(
-        {'photo.indexing': {'$gte': middle-10, '$lte': middle+10}}))
+        {'photo.indexing': {'$gte': middle - 10, '$lte': middle + 10}}))
     hash_media = ''
     hash_list = []
     for x in query_xmedia[-5:]:

@@ -169,7 +169,7 @@ emoji_dict = emojitags().emoji_dict
 def tidy(input_):
     '''
     input emoji
-    string to list 
+    string to list
     '''
     tmp = []
     for x in input_:
@@ -217,9 +217,9 @@ def druation(input_):
     input list
     '''
     day_list = []
-    if type(input_) == str and input_.isalpha() == False:
+    if isinstance(input_, str) and input_.isalpha() == False:
         tidy_ = to_list(tidy(input_))
-    elif type(input_) == str:
+    elif isinstance(input_, str):
         return 'not a list.'
     else:
         tidy_ = input_

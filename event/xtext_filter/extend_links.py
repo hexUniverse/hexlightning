@@ -37,7 +37,7 @@ def extend_links(bot, update, inherit, cmd=None):
     # tinyurl, t.cn, bit.ly
     return False
     locales.i18n(update).loads.install(True)
-    pattern = '(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)(tinyurl\.com|bit\.ly|t\.cn)(\/[a-z0-9]+)'
+    pattern = r'(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)(tinyurl\.com|bit\.ly|t\.cn)(\/[a-z0-9]+)'
     result = re.findall(pattern, unescape(
         update.message.text_html), re.IGNORECASE)
     if len(result) == 0:
@@ -103,18 +103,25 @@ def extend_links(bot, update, inherit, cmd=None):
     else:
         until = (datetime.now(taiwan_country) +
                  timedelta(days=day)).timestamp()
-    excalibur(bot, update, update.message.from_user.id, tags,
-              bot.id, until=until, reason=f'hex auto.{extract_result.name}', evidence=evidence)
+    excalibur(
+        bot,
+        update,
+        update.message.from_user.id,
+        tags,
+        bot.id,
+        until=until,
+        reason=f'hex auto.{extract_result.name}',
+        evidence=evidence)
 
     right = False
     try:
         update.message.delete()
-    except:
+    except BaseException:
         right = True
     try:
         bot.restrict_chat_member(
             update.message.chat.id, update.message.from_user.id)
-    except:
+    except BaseException:
         right = True
 
     text = _(

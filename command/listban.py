@@ -81,7 +81,7 @@ class bang:
                         if x in ban.tags:
                             trigger = True
                             break
-                    if trigger == False:
+                    if not trigger:
                         return
                 # 開工ㄌ。
                 try:
@@ -97,7 +97,7 @@ class bang:
                     if e.message == 'User is an administrator of the chat':
                         pass
                     elif e.message == 'Not enough rights to restrict/unrestrict chat member':
-                        tmp_text = text+'因權限不足，而無法從本群組踢飛。'
+                        tmp_text = text + '因權限不足，而無法從本群組踢飛。'
                         #bot.send_message(chat_id, tmp_text, parse_mode='html', disable_web_page_preview=True)
                     elif e.message == 'Forbidden: bot is not a member of the supergroup chat':
                         self.db.group.find_one_and_delete(
@@ -113,7 +113,7 @@ class bang:
                             chat_id, tmp_text, parse_mode='html', disable_web_page_preview=True)
                         time.sleep(10)
                         bot.delete_message(chat_id, sent.result().message_id)
-                    except:
+                    except BaseException:
                         pass
 
     @run_async
@@ -124,7 +124,7 @@ class bang:
         list_uid = search('u={:S}', update.message.text)
 
         bang_uid_list = []
-        if list_uid == None or tag == None:
+        if list_uid is None or tag is None:
             update.message.reply_text('缺少必要參數。')
             return
         # prevent injection
@@ -137,7 +137,8 @@ class bang:
         for tag_split in tag[0].split(','):
             if tag_split not in self.tags:
                 update.message.reply_text(
-                    f'找不到相符的 tags，限用文字。\n<code>Error Code: 767 {tag_split}</code>', parse_mode='html')
+                    f'找不到相符的 tags，限用文字。\n<code>Error Code: 767 {tag_split}</code>',
+                    parse_mode='html')
                 return
             tmp_tag.append(tag_split)
         tags_emoji = self.emojitags.to_emoji(tmp_tag)
@@ -155,7 +156,7 @@ class bang:
                 if ex_uid == bot.id:
                     update.message.reply_text(f'你檢查一下不要自攻自受R XDDDD\n{ex_uid}')
                     return
-                elif ex_uid in list(set(self.paradise.lucifer+self.paradise.michael)):
+                elif ex_uid in list(set(self.paradise.lucifer + self.paradise.michael)):
                     update.message.reply_text(f'連對方是天使都想濫掉(？▽？)\n{ex_uid}')
                     return
                 elif ex_uid in self.white_cache:
@@ -163,7 +164,7 @@ class bang:
                     return
 
         # 非重複處理
-        if reason == None:
+        if reason is None:
             reason = tags_str
         if day:
             if day[0] > 365:
@@ -180,22 +181,21 @@ class bang:
         for uid in bang_uid_list:
             try:
                 query = self.db.user.find_one({'chat.id': uid})
-            except:
+            except BaseException:
                 update.message.reply_text(f'你提供的uid頂到肺了。{uid}')
                 return
             # db something
             query_update = {
                 '$set': {
                     'current': {
-                        'date': int(datetime.now().astimezone(tz.gettz('UTC')).timestamp()),
+                        'date': int(
+                            datetime.now().astimezone(
+                                tz.gettz('UTC')).timestamp()),
                         'opid': update.message.from_user.id,
                         'until': until,
                         'reason': reason,
-                        'tags': tags_emoji
-                    }
-                }
-            }
-            if query == None:
+                        'tags': tags_emoji}}}
+            if query is None:
                 pass
             elif 'current' in query.keys() and 'history' in query.keys():
                 query_update['$push'] = {'history': query['current']}

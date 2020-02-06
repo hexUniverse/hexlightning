@@ -17,7 +17,12 @@ coloredlogs.install(level='INFO')
 def guide_callback(bot, update):
     query = update.callback_query
     i18n(update).loads.install(True)
-    if sage.lucifer(query.from_user.id) or is_admin(bot, update, (query.message.chat.id, query.from_user.id)):
+    if sage.lucifer(
+        query.from_user.id) or is_admin(
+        bot,
+        update,
+        (query.message.chat.id,
+         query.from_user.id)):
         pass
     else:
         text = '你又不是管理員 😘'
@@ -84,8 +89,8 @@ def guide_callback(bot, update):
             query.edit_message_text(
                 text=text, reply_markup=keyboard, parse_mode='html')
     elif callback.qact == 'langset':
-        mongo.group.find_one_and_update({'chat.id': query.message.chat.id},
-                                        {'$set': {'chat.config.lang_code': callback.qdata}})
+        mongo.group.find_one_and_update({'chat.id': query.message.chat.id}, {
+                                        '$set': {'chat.config.lang_code': callback.qdata}})
         keyboard = generate.inline_groupconfig(
             bot, update, 2, inputqtype='guide')
 

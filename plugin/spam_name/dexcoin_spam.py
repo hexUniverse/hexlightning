@@ -9,7 +9,7 @@ class dexcoin_spam:
         '''
         informationbot|dexinfobot|announcementbot
 
-        return: 
+        return:
             tuple (True, 'Coin_Dex_Spam', [result])
         '''
         pattern = '(informationbot|dexinfobot|announcementbot|binanceairdropbot)'

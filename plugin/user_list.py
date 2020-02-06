@@ -40,7 +40,7 @@ class user_list:
     def is_lucifer(self, user_id: 'input telegram user id'):
         self.lucifer = redis.lrange('lucifer', 0, -1)
         user_id = self.isdigit(user_id, getback=True)
-        if user_id == False:
+        if not user_id:
             return False
         if user_id not in self.lucifer:
             return False
@@ -50,7 +50,7 @@ class user_list:
     def is_michael(self, user_id: 'input telegram user id'):
         self.michael = redis.lrange('michael', 0, -1)
         user_id = self.isdigit(user_id, getback=True)
-        if user_id == False:
+        if not user_id:
             return False
         if user_id not in self.michael:
             return False
@@ -60,7 +60,7 @@ class user_list:
     def is_elf(self, user_id: 'input telegram user id'):
         self.elf = redis.lrange('elf', 0, -1)
         user_id = self.isdigit(user_id, getback=True)
-        if user_id == False:
+        if not user_id:
             return False
         if user_id not in self.elf:
             return False
@@ -70,7 +70,7 @@ class user_list:
     def is_global_white(self, user_id: 'input telegram user id'):
         self.global_white = redis.lrange('global_white', 0, -1)
         user_id = self.isdigit(user_id, getback=True)
-        if user_id == False:
+        if not user_id:
             return False
         if user_id not in self.elf:
             return False

@@ -11,7 +11,7 @@ def func_time(func):
     def _wrapper(*args, **kwargs):
         start = time.time()
         func(*args, **kwargs)
-        print(func.__name__, 'run:', time.time()-start)
+        print(func.__name__, 'run:', time.time() - start)
     return _wrapper
 
 
@@ -20,7 +20,7 @@ def ainsert(num):
     posts = db.userinfo
     for x in range(num):
         post = {'_id': str(x),
-                'author': str(x)+'tdc',
+                'author': str(x) + 'tdc',
                 'text': f'{int(time.time())}',
                 'tags': ['tdc', 'dct', 'cdt'],
                 'date': datetime.datetime.utcnow()}

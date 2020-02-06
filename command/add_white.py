@@ -10,7 +10,7 @@ def add_white(bot, update, args):
     if len(args) == 0:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             pass
         return
     admins = bot.get_chat_member(
@@ -18,7 +18,7 @@ def add_white(bot, update, args):
     if is_admin(bot, update) == False:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             pass
         text = '此指令只允許管理員操作。'
         update.message.reply_text(text)
@@ -30,7 +30,7 @@ def add_white(bot, update, args):
         return
     try:
         uid = int(args[0])
-    except:
+    except BaseException:
         update.message.reply_html(_(f'UID <code>{args[0]}</code> 解析錯誤 '))
         return
     if uid > 9999999999:
@@ -46,8 +46,8 @@ def add_white(bot, update, args):
                 text = _(f'<code>{uid}</code> 已在群組白名單內')
                 update.message.reply_html(text)
         else:
-            mongo.group.update_one(
-                {'chat.id': group.id}, {'$addToSet': {'chat.white_participate': uid}}, upsert=True)
+            mongo.group.update_one({'chat.id': group.id}, {'$addToSet': {
+                'chat.white_participate': uid}}, upsert=True)
             text = _('已更新白名單 ✅')
             update.message.reply_text(text)
     else:

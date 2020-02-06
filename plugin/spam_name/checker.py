@@ -30,7 +30,7 @@ def checker(bot, update, new_member):
         checker_result, checker_name, checker_match = do_check.detect(
             new_member.full_name.lower())
         # print(do_check.detect(new_member.full_name.lower()))
-        if group.config == None:
+        if group.config is None:
             # 無心市政
             # 城市不築 敗事有瑜
             return
@@ -46,11 +46,16 @@ def checker(bot, update, new_member):
 
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             try:
-                bot.restrict_chat_member(update.message.chat_id, new_member.id, until_date=None,
-                                         can_send_messages=None, can_send_media_messages=None, can_send_other_messages=None)
+                bot.restrict_chat_member(
+                    update.message.chat_id,
+                    new_member.id,
+                    until_date=None,
+                    can_send_messages=None,
+                    can_send_media_messages=None,
+                    can_send_other_messages=None)
             except BadRequest:
                 text = _('海克斯希貝兒先知系統偵測到一個<code>心靈指數過高用戶</code>，請給予相應權限作出處理。\n') + \
                     _(f'名稱：{new_member.mention_html()}\n') + \

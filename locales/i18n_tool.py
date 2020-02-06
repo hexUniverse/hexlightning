@@ -17,8 +17,13 @@ class i18n_tool:
             'zh_TW', 'locales', languages=['zh_TW'])
         self.en = gettext.translation('en', 'locales', languages=['en'])
 
-        self.lang = {'zh_tw': self.zh_tw, 'zh-hant': self.zh_tw,
-                     'zh_cn': self.zh_cn, 'zh-hans': self.zh_cn, 'None': self.en, 'en': self.en}
+        self.lang = {
+            'zh_tw': self.zh_tw,
+            'zh-hant': self.zh_tw,
+            'zh_cn': self.zh_cn,
+            'zh-hans': self.zh_cn,
+            'None': self.en,
+            'en': self.en}
 
 
 class i18n(i18n_tool):

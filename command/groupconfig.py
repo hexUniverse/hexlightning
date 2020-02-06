@@ -13,11 +13,13 @@ def groupconfig(bot, update):
     mongo = db_tools.use_mongo()
     try:
         update.message.delete()
-    except:
+    except BaseException:
         pass
     users = bot.get_chat_member(
         update.message.chat.id, update.message.from_user.id)
-    if is_admin(bot, update) == False or sage.lucifer(update.message.chat.id) == False:
+    if is_admin(
+            bot, update) == False or sage.lucifer(
+            update.message.chat.id) == False:
         text = _('你不是管理員好嗎，請不要亂打擾我。')
         sent = update.message.reply_text(text).result()
         time.sleep(5)

@@ -5,7 +5,8 @@ def is_admin(bot, update, specfic=None):
         user = bot.get_chat_member(chat, uid)
     elif update.callback_query:
         user = bot.get_chat_member(
-            update.callback_query.message.chat.id, update.callback_query.message.from_user.id)
+            update.callback_query.message.chat.id,
+            update.callback_query.message.from_user.id)
     else:
         user = bot.get_chat_member(
             update.message.chat.id, update.message.from_user.id)

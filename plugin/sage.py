@@ -14,7 +14,8 @@ def refresh():
     lucifer = result['lucifer']
     michael = result['michael']
     elf = result['elf']
-    for sage_calling, sage_name in zip([elf, michael, lucifer], ['elf', 'michael', 'lucifer']):
+    for sage_calling, sage_name in zip([elf, michael, lucifer], [
+                                       'elf', 'michael', 'lucifer']):
         redis.delete(sage_name)
         for x in sage_calling:
             redis.lpush(sage_name, x)

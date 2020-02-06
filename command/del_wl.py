@@ -10,14 +10,14 @@ def del_wl(bot, update, args):
     if len(args) == 0:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             pass
         return
     if sage.is_sage(update.message.from_user.id):
         if sage.lucifer(update.message.from_user.id) == False:
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             text = '你等級不夠 🌚\n最低等級要求是 <code>Lucifer</code>'
             update.message.reply_html(text)
@@ -25,7 +25,7 @@ def del_wl(bot, update, args):
     else:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             pass
         return
     mongo = db_tools.use_mongo()
@@ -34,7 +34,7 @@ def del_wl(bot, update, args):
         return
     try:
         uid = int(args[0])
-    except:
+    except BaseException:
         update.message.reply_html(_(f'UID <code>{args[0]}</code> 解析錯誤 '))
         return
     if uid > 9999999999:

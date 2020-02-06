@@ -27,7 +27,7 @@ def extinguish(bot, update, target: 'input chat.id and uid with int in tuple'):
                 redis.lrem(f'msg:{chat}', data, num=1)
 
 
-#@run_async
+# @run_async
 def homicide(bot, update, target: 'input uid with int'):
     '''
     列舉 UID 所參與的群組，然後幹他
@@ -42,7 +42,7 @@ def homicide(bot, update, target: 'input uid with int'):
         logger.debug('query user not found')
         return
     user.parse(query_user)
-    if user.participate == None or user.participate == []:
+    if user.participate is None or user.participate == []:
         return
 
     for group in user.participate:
@@ -111,8 +111,9 @@ def homicide(bot, update, target: 'input uid with int'):
                     sage.refresh()
 
             else:
-                threading.Thread(target=extinguish, name=f'{group}_del_msg', args=[
-                    bot, update, (group, target)]).start()
+                threading.Thread(
+                    target=extinguish, name=f'{group}_del_msg', args=[
+                        bot, update, (group, target)]).start()
                 text = _(f'名字：{user.mention_html}\n') + \
                     _(f'UID：{user.id}\n') + \
                     _(f'證據：https://t.me/hexevidence{user.current.evidence}\n') + \
@@ -129,7 +130,7 @@ def homicide(bot, update, target: 'input uid with int'):
                     # text += _('因為 <code>{reason}</code> 而被琦玉用 <code>普通連續拳</code> 暫時揍飛於宇宙之外\n封鎖到：<code>{date}</code>').format(
                     #    reason=reason, date=user.current.until_text)
                     text += _(banyourwords.banyourwords.temp.format(reason=reason,
-                                                       date=user.current.until_text))
+                                                                    date=user.current.until_text))
                 text += _(f'\n處刑人：{user.current.opid}\n') + \
                     _(f'有任何問題請至 @hexjudge 詢問')
                 sent = bot.send_message(

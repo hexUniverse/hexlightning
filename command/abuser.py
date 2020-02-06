@@ -22,12 +22,12 @@ def abuser(bot, update):
         if str(user.current.opid) not in angel.keys():
             try:
                 angel[f"{user.current.opid}"] = 1
-            except:
+            except BaseException:
                 raise
         else:
             try:
                 angel[f"{user.current.opid}"] += 1
-            except:
+            except BaseException:
                 raise
 
     ranking = sorted(angel.items(), key=itemgetter(1))

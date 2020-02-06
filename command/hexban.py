@@ -18,6 +18,7 @@ taiwan_country = tz.gettz('Asia/Taipei')
 mongo = db_tools.use_mongo()
 redis = db_tools.use_redis()
 
+
 @run_async
 def hexban_reply(bot, update):
     '''
@@ -28,7 +29,7 @@ def hexban_reply(bot, update):
     if sage.is_sage(update.message.from_user.id) == False:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             return
         sent = update.message.reply_text('騷年，你渴望力量ㄇ？').result()
         time.sleep(5)
@@ -58,19 +59,26 @@ def hexban_reply(bot, update):
         opid = update.message.from_user.id
 
         bang = []
-        if sage.in_shield(update.message.reply_to_message.from_user.id) == False:
+        if sage.in_shield(
+                update.message.reply_to_message.from_user.id) == False:
             bang = [update.message.reply_to_message.from_user]
         if update.message.reply_to_message.forward_from:
-            if sage.in_shield(update.message.reply_to_message.forward_from.id) == False:
+            if sage.in_shield(
+                    update.message.reply_to_message.forward_from.id) == False:
                 bang.append(update.message.reply_to_message.forward_from)
         if update.message.reply_to_message.forward_from_chat:
-            if sage.in_shield(update.message.reply_to_message.forward_from_chat.id) == False:
+            if sage.in_shield(
+                    update.message.reply_to_message.forward_from_chat.id) == False:
                 bang.append(update.message.reply_to_message.forward_from_chat)
         if bang:
             try:
-                sent = bot.forward_message(config.getint('log', 'evidence'), update.message.reply_to_message.chat.id,
-                                           update.message.reply_to_message.message_id)
-            except:
+                sent = bot.forward_message(
+                    config.getint(
+                        'log',
+                        'evidence'),
+                    update.message.reply_to_message.chat.id,
+                    update.message.reply_to_message.message_id)
+            except BaseException:
                 sent = None
             if sent:
                 evidence = sent.message_id
@@ -85,16 +93,20 @@ def hexban_reply(bot, update):
                     text += _(
                         f'<code>{update.message.reply_to_message.from_user.id}</code> 白色恐怖快逃R 🌚')
             if update.message.reply_to_message.forward_from:
-                if sage.in_shield(update.message.reply_to_message.forward_from.id):
-                    if sage.is_sage(update.message.reply_to_message.forward_from.id):
+                if sage.in_shield(
+                        update.message.reply_to_message.forward_from.id):
+                    if sage.is_sage(
+                            update.message.reply_to_message.forward_from.id):
                         text += _(
                             f'<code>{update.message.reply_to_message.forward_from.id}</code> 有精靈保護 🌚')
                     else:
                         text += _(
                             f'<code>{update.message.reply_to_message.from_user.id}</code> 白色恐怖快逃R 🌚')
             if update.message.reply_to_message.forward_from_chat:
-                if sage.in_shield(update.message.reply_to_message.forward_from_chat.id):
-                    if sage.is_sage(update.message.reply_to_message.forward_from_chat.id):
+                if sage.in_shield(
+                        update.message.reply_to_message.forward_from_chat.id):
+                    if sage.is_sage(
+                            update.message.reply_to_message.forward_from_chat.id):
                         text += _(
                             f'<code>{update.message.reply_to_message.forward_from_chat.id}</code> 有精靈保護 🌚')
                     else:
@@ -105,8 +117,16 @@ def hexban_reply(bot, update):
 
         if Filters.sticker(update.message.reply_to_message):
             if update.message.reply_to_message.sticker.set_name:
-                update_sticker = {'$set':{'sticker': {'set_name': update.message.reply_to_message.sticker.set_name, 'tags':tags},'opid': update.message.from_user.id,'reason': tags_text, 'evidence': evidence}}
-                mongo.sticker.find_one_and_update({'sticker.id': update.message.reply_to_message.sticker.file_id}, update_sticker, upsert=True)
+                update_sticker = {
+                    '$set': {
+                        'sticker': {
+                            'set_name': update.message.reply_to_message.sticker.set_name,
+                            'tags': tags},
+                        'opid': update.message.from_user.id,
+                        'reason': tags_text,
+                        'evidence': evidence}}
+                mongo.sticker.find_one_and_update(
+                    {'sticker.id': update.message.reply_to_message.sticker.file_id}, update_sticker, upsert=True)
                 text = f'ID：<code>{update.message.reply_to_message.sticker.file_id}</code>\n'
                 if update.message.reply_to_message.sticker.set_name:
                     # https://t.me/addstickers/nichijou
@@ -115,33 +135,42 @@ def hexban_reply(bot, update):
                 update.message.reply_html(text)
                 sticker_judge.refresh()
         if Filters.photo(update.message.reply_to_message):
-            file = bytes(update.message.reply_to_message.photo[-1].get_file().download_as_bytearray())
+            file = bytes(
+                update.message.reply_to_message.photo[-1].get_file().download_as_bytearray())
             bio = io.BytesIO(file)
             #hashing = str(imagehash.phash(bio))
             i = imagehash.hashing(bio)
             hashing = i.phash()
-            
+
             query_photo = mongo.xmedia.find_one({'photo.hash': hashing})
             if query_photo:
                 pass
             else:
                 tmp_dict = {'photo':
-                                {'hash': hashing,
-                                'tags': to_emoji(tags),
-                                'indexing': i.indexing()},
+                            {'hash': hashing,
+                             'tags': to_emoji(tags),
+                             'indexing': i.indexing()},
                             'evidence': evidence,
                             'opid': update.message.from_user.id,
                             'reason': tags_text}
                 mongo.xmedia.insert_one(tmp_dict)
                 text = f'hash：<code>{hashing}</code>\n' + \
-                        _(f'標籤：<code>{tags_text}</code>\n') + \
-                        _(f'標記：<code>{i.indexing()}</code>')
+                    _(f'標籤：<code>{tags_text}</code>\n') + \
+                    _(f'標記：<code>{i.indexing()}</code>')
                 update.message.reply_html(text)
                 redis.lpush('photo_cache', hashing)
 
         for chat in bang:
-            text = excalibur(bot, update, uid=chat.id, tags=tags, opid=opid,
-                             until=until, reason=tags_text, user=chat, evidence=evidence)
+            text = excalibur(
+                bot,
+                update,
+                uid=chat.id,
+                tags=tags,
+                opid=opid,
+                until=until,
+                reason=tags_text,
+                user=chat,
+                evidence=evidence)
             update.message.reply_html(text, web_page_preview=False)
             update_user = {'$set': {'chat': chat.to_dict()}}
             mongo.user.find_one_and_update({'chat.id': chat.id}, update_user)
@@ -155,7 +184,7 @@ def hexban_reply(bot, update):
         uid = search('u={:d}', update.message.text)
         now = datetime.now(taiwan_country)
 
-        if tags == None:
+        if tags is None:
             text = f'缺少標籤參數。'
             update.message.reply_html(text)
             return
@@ -191,17 +220,28 @@ def hexban_reply(bot, update):
         if uid:
             uid = uid[0]
             try:
-                sent = bot.forward_message(config.getint('log', 'evidence'), update.message.reply_to_message.chat.id,
-                                           update.message.reply_to_message.message_id)
-            except:
+                sent = bot.forward_message(
+                    config.getint(
+                        'log',
+                        'evidence'),
+                    update.message.reply_to_message.chat.id,
+                    update.message.reply_to_message.message_id)
+            except BaseException:
                 sent = None
             if sent:
                 evidence = sent.message_id
             else:
                 evidence = 2
 
-            text = excalibur(bot, update, uid=uid, tags=tags,
-                             opid=opid, until=until, reason=reason, evidence=evidence)
+            text = excalibur(
+                bot,
+                update,
+                uid=uid,
+                tags=tags,
+                opid=opid,
+                until=until,
+                reason=reason,
+                evidence=evidence)
 
             update.message.reply_html(text)
             return
@@ -211,17 +251,23 @@ def hexban_reply(bot, update):
         else:
             bang = [update.message.reply_to_message.from_user]
         if update.message.reply_to_message.forward_from:
-            if sage.in_shield(update.message.reply_to_message.forward_from.id) == False:
+            if sage.in_shield(
+                    update.message.reply_to_message.forward_from.id) == False:
                 bang.append(update.message.reply_to_message.forward_from)
         if update.message.reply_to_message.forward_from_chat:
-            if sage.in_shield(update.message.reply_to_message.forward_from_chat.id) == False:
+            if sage.in_shield(
+                    update.message.reply_to_message.forward_from_chat.id) == False:
                 bang.append(update.message.reply_to_message.forward_from_chat)
 
         if bang:
             try:
-                sent = bot.forward_message(config.getint('log', 'evidence'), update.message.reply_to_message.chat.id,
-                                           update.message.reply_to_message.message_id)
-            except:
+                sent = bot.forward_message(
+                    config.getint(
+                        'log',
+                        'evidence'),
+                    update.message.reply_to_message.chat.id,
+                    update.message.reply_to_message.message_id)
+            except BaseException:
                 sent = None
             if sent:
                 evidence = sent.message_id
@@ -230,23 +276,32 @@ def hexban_reply(bot, update):
         else:
             text = ''
             if update.message.reply_to_message.forward_from:
-                if sage.is_sage(update.message.reply_to_message.forward_from.id):
+                if sage.is_sage(
+                        update.message.reply_to_message.forward_from.id):
                     text += f'<code>{update.message.reply_to_message.forward_from.id}</code> 有精靈護體 🌚'
                 else:
                     text += f'<code>{update.message.reply_to_message.forward_from.id}</code> 白色恐怖快逃RRR 🌝'
 
             if update.message.reply_to_message.forward_from_chat:
-                if sage.is_sage(update.message.reply_to_message.forward_from_chat):
+                if sage.is_sage(
+                        update.message.reply_to_message.forward_from_chat):
                     text += f'<code>{update.message.reply_to_message.forward_from_chat.id}</code> 有精靈護體 🌚'
                 else:
                     text += f'<code>{update.message.reply_to_message.forward_from_chat.id}</code> 白色恐怖快逃RRR 🌝'
             update.message.reply_html(text)
-            
 
         if Filters.sticker(update.message.reply_to_message):
             if update.message.reply_to_message.sticker.set_name:
-                update_sticker = {'$set':{'sticker': {'set_name': update.message.reply_to_message.sticker.set_name, 'tags':tags},'opid': update.message.from_user.id,'reason': tags_text, 'evidence': evidence}}
-                mongo.sticker.find_one_and_update({'sticker.id': update.message.reply_to_message.sticker.file_id}, update_sticker, upsert=True)
+                update_sticker = {
+                    '$set': {
+                        'sticker': {
+                            'set_name': update.message.reply_to_message.sticker.set_name,
+                            'tags': tags},
+                        'opid': update.message.from_user.id,
+                        'reason': tags_text,
+                        'evidence': evidence}}
+                mongo.sticker.find_one_and_update(
+                    {'sticker.id': update.message.reply_to_message.sticker.file_id}, update_sticker, upsert=True)
                 text = f'ID：<code>{update.message.reply_to_message.sticker.file_id}</code>\n'
                 if update.message.reply_to_message.sticker.set_name:
                     # https://t.me/addstickers/nichijou
@@ -257,8 +312,16 @@ def hexban_reply(bot, update):
         for chat in bang:
             update_user = {'$set': {'chat': chat.to_dict()}}
             mongo.user.find_one_and_update({'chat.id': chat.id}, update_user)
-            text = excalibur(bot, update, uid=chat.id, opid=opid,
-                             until=until, reason=reason, tags=tags, user=chat, evidence=evidence)
+            text = excalibur(
+                bot,
+                update,
+                uid=chat.id,
+                opid=opid,
+                until=until,
+                reason=reason,
+                tags=tags,
+                user=chat,
+                evidence=evidence)
             update.message.reply_html(text, web_page_preview=False)
 
 
@@ -267,7 +330,7 @@ def hexban_long(bot, update):
     if sage.is_sage(update.message.from_user.id) == False:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             return
         sent = update.message.reply_text('騷年，你渴望力量ㄇ？').result()
         time.sleep(5)
@@ -284,10 +347,10 @@ def hexban_long(bot, update):
     uid = search('u={:d}', update.message.text)
     now = datetime.now(taiwan_country)
 
-    if tags == None:
+    if tags is None:
         update.message.reply_html(_('缺少 <code>標籤</code> 參數。'))
         return
-    elif uid == None:
+    elif uid is None:
         update.message.reply_html(_('缺少 <code>UID</code> 參數。'))
         return
 

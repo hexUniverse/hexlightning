@@ -22,7 +22,9 @@ def quickban(bot, update):
     user_id, msg_id = callback.qact.split(':')
     tags = callback.qdata
 
-    if sage.michael(query.from_user.id) == False and sage.lucifer(query.from_user.id) == False:
+    if sage.michael(
+            query.from_user.id) == False and sage.lucifer(
+            query.from_user.id) == False:
         query.answer('權限不夠。')
         return
     if sage.in_shield(int(user_id)):
@@ -33,7 +35,7 @@ def quickban(bot, update):
         # sent = bot.forward_message(config.getint(
         #    'log', 'evidence'), config.getint('admin', 'elf'), int(msg_id))
         sent = update.message.forward(config.getint('log', 'evidence'))
-    except:
+    except BaseException:
         sent = 2
 
     days = druation([tags])

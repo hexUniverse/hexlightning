@@ -8,7 +8,7 @@ class testnet:
     def detect(self, full_name):
         '''
         Testnet
-        return: 
+        return:
             tuple (True, 'QQ_Spam', [result])
         '''
         pattern = '(testnet)'

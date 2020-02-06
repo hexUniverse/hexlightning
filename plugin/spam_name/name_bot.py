@@ -9,7 +9,7 @@ class name_bot:
         '''
         information bot|dexinfo bot|announcement bot
 
-        return: 
+        return:
             tuple (True, 'Coin_Dex_Spam', [result])
         '''
         pattern = '(bot)'

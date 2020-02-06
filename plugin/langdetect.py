@@ -31,7 +31,7 @@ class langdetec:
             else:
                 cacu[category] += 1
         for category in cacu:
-            cacu[category] = cacu[category]/total
+            cacu[category] = cacu[category] / total
         sorted_ = sorted(cacu.items(), key=lambda kv: kv[1])
 
         self.confidence = sorted_[-1][1]

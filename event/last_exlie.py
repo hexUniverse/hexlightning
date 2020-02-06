@@ -57,8 +57,15 @@ def last_exlie(bot, update):
             keeps = False
             try:
                 update.message.from_user.fullname = update.message.from_user.full_name
-                msg = _(announce(update.message.from_user.id, forward_check.current.tags_list, forward_check.current.opid, until=forward_check.current.until,
-                                 reason=forward_check.current.reason, evidence=forward_check.current.evidence, query_user=update.message.from_user))
+                msg = _(
+                    announce(
+                        update.message.from_user.id,
+                        forward_check.current.tags_list,
+                        forward_check.current.opid,
+                        until=forward_check.current.until,
+                        reason=forward_check.current.reason,
+                        evidence=forward_check.current.evidence,
+                        query_user=update.message.from_user))
                 bot.restrict_chat_member(
                     update.message.chat.id, update.message.from_user.id)
             except BadRequest as e:
@@ -74,7 +81,7 @@ def last_exlie(bot, update):
                          'ID：<code>{chat_id}</code>\n'
                          '{spliter}'
                          '\n{msg}').format(
-                             spliter='='*10,
+                             spliter='=' * 10,
                              chat_title='title',
                              chat_id=forward_check.id,
                              msg=msg)
@@ -84,16 +91,16 @@ def last_exlie(bot, update):
             time.sleep(10)
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             try:
                 sent.delete()
-            except:
+            except BaseException:
                 pass
             try:
                 bot.kick_chat_member(update.message.chat.id,
                                      update.message.from_user.id)
-            except:
+            except BaseException:
                 pass
             else:
                 update_user = {'$addToSet': {
@@ -108,12 +115,19 @@ def last_exlie(bot, update):
     if user_check and user_check.current:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             pass
         keeps = False
         try:
-            msg = _(announce(user_check.id, user_check.current.tags_list, user_check.current.opid, until=user_check.current.until,
-                             reason=user_check.current.reason, evidence=user_check.current.evidence, query_user=user_check))
+            msg = _(
+                announce(
+                    user_check.id,
+                    user_check.current.tags_list,
+                    user_check.current.opid,
+                    until=user_check.current.until,
+                    reason=user_check.current.reason,
+                    evidence=user_check.current.evidence,
+                    query_user=user_check))
             bot.restrict_chat_member(
                 update.message.chat.id, update.message.from_user.id)
         except BadRequest as e:
@@ -131,12 +145,12 @@ def last_exlie(bot, update):
         time.sleep(10)
         try:
             sent.delete()
-        except:
+        except BaseException:
             pass
         try:
             bot.kick_chat_member(update.message.chat.id,
                                  update.message.from_user.id)
-        except:
+        except BaseException:
             pass
         else:
             update_user = {'$addToSet': {

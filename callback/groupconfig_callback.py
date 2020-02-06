@@ -25,14 +25,19 @@ def groupconfig_callback(bot, update):
     query_group = mongo.group.find_one({'chat.id': query.message.chat.id})
     group = db_parse.group()
     group.parse(query_group)
-    if sage.lucifer(query.from_user.id) or is_admin(bot, update, (query.message.chat.id, query.from_user.id)):
+    if sage.lucifer(
+        query.from_user.id) or is_admin(
+        bot,
+        update,
+        (query.message.chat.id,
+         query.from_user.id)):
         pass
     else:
         text = '你又不是管理員 😘'
         query.answer(text, show_alert=True)
         return
 
-    if group.config == None:
+    if group.config is None:
         return
 
     if callback.qact == 'keyboard' and callback.qdata == 'close':
@@ -149,8 +154,8 @@ def groupconfig_callback(bot, update):
             logger.warning(e)
 
     elif callback.qact == 'langset':
-        mongo.group.find_one_and_update({'chat.id': query.message.chat.id},
-                                        {'$set': {'chat.config.lang_code': callback.qdata}})
+        mongo.group.find_one_and_update({'chat.id': query.message.chat.id}, {
+                                        '$set': {'chat.config.lang_code': callback.qdata}})
         keyboard = generate.inline_groupconfig(bot, update, 2)
         try:
             query.edit_message_reply_markup(reply_markup=keyboard)

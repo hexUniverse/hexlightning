@@ -49,9 +49,9 @@ def gatejieitai(bot, update, specfic=False):
         group_query = mongo.group.find_one({'chat.id': specfic_chat})
         user.parse(user_query)
         group.parse(group_query)
-        if user.current == None:
+        if user.current is None:
             return False
-        if group_query == None:
+        if group_query is None:
             return False
         date = datetime.fromtimestamp(
             user.current.until).astimezone(taiwan_country)
@@ -61,8 +61,8 @@ def gatejieitai(bot, update, specfic=False):
             # kick yout ass
             if group.config.sub_ban_list:
                 # 比較兩者
-                check = bool(
-                    set(group.config.sub_ban_list).intersection(user.current.tags_list))
+                check = bool(set(group.config.sub_ban_list).intersection(
+                    user.current.tags_list))
                 if check:
                     return user
             else:
@@ -74,8 +74,8 @@ def gatejieitai(bot, update, specfic=False):
                 # logger.info(date)
                 # logger.info(group_query)
                 if group.config and group.config.sub_ban_list:
-                    check = bool(
-                        set(group.config.sub_ban_list).intersection(user.current.tags_list))
+                    check = bool(set(group.config.sub_ban_list).intersection(
+                        user.current.tags_list))
                     if check:
                         #logger.info(f'user {check}')
                         return user
