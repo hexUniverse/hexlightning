@@ -5,7 +5,7 @@ from telegram.ext.dispatcher import run_async
 
 
 from command import info
-from plugin import config, is_admin, sage, sage
+from plugin import config, is_admin, sage
 from inlinekeyboard import quickban
 from locales import i18n
 

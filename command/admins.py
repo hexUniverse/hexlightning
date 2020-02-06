@@ -3,7 +3,7 @@
 from telegram.ext import Filters
 from telegram import TelegramError
 
-from plugin import config, config, db_parse, db_tools
+from plugin import config, db_parse, db_tools
 from command import info
 from inlinekeyboard import quickban
 from locales import i18n

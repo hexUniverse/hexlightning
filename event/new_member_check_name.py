@@ -14,4 +14,4 @@ coloredlogs.install(level='INFO')
 
 @run_async
 def new_member_check_name(bot, update, new_member):
-    checker(bot, update)
+    checker(bot, update, new_member)
