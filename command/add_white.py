@@ -1,4 +1,4 @@
-from plugin import db_parse, db_tools, sage, is_admin
+from plugin import db_parse, db_tools, is_admin
 from locales import i18n
 
 from telegram.ext.dispatcher import run_async

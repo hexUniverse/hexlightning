@@ -6,7 +6,7 @@ from telegram.ext.dispatcher import run_async
 
 from plugin import config
 from plugin import db_parse, db_tools, to_emoji
-from plugin.spam_name import *
+from plugin.spam_name import _, ad82cc, dexcoin_spam, halal, mdfk_ads, porn_1861, qqspam, scam, testnet
 from plugin.excalibur import excalibur
 checker_list = [dexcoin_spam, mdfk_ads,
                 porn_1861, qqspam, scam, testnet, halal, ad82cc]

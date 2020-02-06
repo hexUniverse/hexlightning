@@ -3,11 +3,10 @@ import logging
 import coloredlogs
 import threading
 
-from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 
-from plugin import db_parse, db_tools, to_string
-from plugin import gatejieitai, config, sage, banyourwords
+from plugin import db_parse, db_tools
+from plugin import banyourwords, gatejieitai, sage
 from locales import i18n
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')

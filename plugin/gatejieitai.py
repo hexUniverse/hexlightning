@@ -1,10 +1,9 @@
 import logging
 import coloredlogs
 #import pysnooper
-from datetime import datetime, timedelta
+from datetime import datetime
 from dateutil import tz
 
-from telegram.ext.dispatcher import run_async
 from plugin import db_parse, db_tools, sage
 
 taiwan_country = tz.gettz('Asia/Taipei')

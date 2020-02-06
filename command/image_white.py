@@ -1,6 +1,6 @@
 import io
 from plugin import imagehash
-from plugin import sage, db_tools, db_parse
+from plugin import db_tools, sage
 from telegram.ext.dispatcher import run_async
 
 

@@ -2,9 +2,8 @@ import time
 import logging
 from html import escape
 
-import telegram
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import *
+from telegram.error import BadRequest, TelegramError, TimedOut, Unauthorized
 from telegram.ext.dispatcher import run_async
 
 
@@ -183,4 +182,3 @@ class handler:
                 break
             except TimedOut:
                 time.sleep(5)
-                pass

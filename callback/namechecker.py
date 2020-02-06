@@ -2,9 +2,8 @@ import logging
 import coloredlogs
 from html import escape
 
-import telegram
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import *
+from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext.dispatcher import run_async
 
 from plugin import config, callabck_parse

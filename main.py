@@ -1,22 +1,16 @@
-import os
 import sys
 import time
 import logging
-import asyncio
 import argparse
 
 import pymongo
 from pymongo.errors import ConnectionFailure
-from termcolor import *
-from pprint import pprint as pp
+from termcolor import colored
 from configparser import ConfigParser
 
-from telegram import user
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Custom
 import handle
-import platform
 from plugin import emojitags
 
 

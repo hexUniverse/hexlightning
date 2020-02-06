@@ -1,26 +1,18 @@
-import re
-import sys
 import time
 import logging
 import coloredlogs
 from html import escape
-from datetime import datetime, timedelta
 
-from dateutil import tz
 
-from pymongo import ReturnDocument
 
-from parse import search
 
-import telegram
-from telegram.error import *
-from telegram.ext import Filters
+from telegram.error import BadRequest, _
 from telegram.ext.dispatcher import run_async
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-from plugin import db_parse, db_tools, config, gatejieitai, to_string
-from plugin import langdetec, checker, banyourwords
+from plugin import config, db_parse, db_tools, gatejieitai
+from plugin import banyourwords, checker
 from event import guide  # , new_member_check_ban
 from locales import i18n
 

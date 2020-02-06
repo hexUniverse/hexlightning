@@ -3,9 +3,8 @@ import coloredlogs
 
 from parse import search
 
-from telegram.ext.dispatcher import run_async
 
-from plugin import db_parse, db_tools, sage, fresh
+from plugin import db_parse, db_tools, sage
 from locales import i18n
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')

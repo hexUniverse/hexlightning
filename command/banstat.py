@@ -1,9 +1,7 @@
 import io
 import logging
 import coloredlogs
-from datetime import datetime, timedelta
 
-import telegram
 from telegram.ext.dispatcher import run_async
 from telegram.ext import Filters
 

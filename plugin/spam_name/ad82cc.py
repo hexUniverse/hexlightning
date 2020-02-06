@@ -1,6 +1,4 @@
 import re
-import telegram
-from telegram.ext import run_async
 
 
 class ad82cc:

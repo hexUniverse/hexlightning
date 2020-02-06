@@ -1,14 +1,9 @@
-import logging
-import coloredlogs
 
 
-import telegram
 from telegram.ext import Filters
 from telegram import TelegramError
-from telegram.error import BadRequest
-from telegram.ext.dispatcher import run_async
 
-from plugin import db_tools, db_parse, sage, config, sage, config
+from plugin import config, config, db_parse, db_tools
 from command import info
 from inlinekeyboard import quickban
 from locales import i18n

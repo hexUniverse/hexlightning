@@ -1,17 +1,15 @@
 import re
 import time
-import json
 import logging
 import coloredlogs
-from html import unescape
 
 from dateutil import tz
 from datetime import datetime, timedelta
 
 import locales
 from plugin import db_tools, db_parse, config, excalibur, homicide
-from plugin import druation, to_emoji, to_string, sage, is_participate_white, is_admin, in_shield
-from event.xtext_filter import *
+from plugin import druation, is_admin, is_participate_white, sage, to_emoji
+from event.xtext_filter import _, extend_links
 
 
 from telegram.ext import Filters

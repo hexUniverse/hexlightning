@@ -1,15 +1,10 @@
-import re
-import time
 import logging
 import coloredlogs
-from html import escape
 
-from locales import i18n
 from plugin import db_tools
 from plugin.spam_name import checker
 
 from telegram.ext.dispatcher import run_async
-from telegram.error import BadRequest
 
 
 mongo = db_tools.use_mongo()

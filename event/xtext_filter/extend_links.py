@@ -13,10 +13,10 @@ from telegram.ext import run_async
 from telegram.error import BadRequest
 
 import locales
-from plugin import druation, to_emoji, to_string, config, sage
-from plugin import db_parse, db_tools, excalibur, homicide, in_shield, is_admin, is_participate_white
+from plugin import config, druation, sage, to_emoji
+from plugin import db_parse, db_tools, excalibur, homicide, is_admin, is_participate_white
 
-from event.xtext_filter import *
+from event.xtext_filter import binance
 
 
 logger = logging.getLogger(__name__)

@@ -1,13 +1,10 @@
 import logging
 import coloredlogs
-from html import escape
 
-import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import *
+from telegram import InlineKeyboardMarkup
 from telegram.ext.dispatcher import run_async
 
-from plugin import config, callabck_parse
+from plugin import callabck_parse
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')

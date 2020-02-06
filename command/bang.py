@@ -1,15 +1,11 @@
-import logging
-import coloredlogs
 from html import escape
 
-import telegram
-from telegram.ext import Filters
 from telegram.error import BadRequest
 from telegram.ext.dispatcher import run_async
 
 
 from command import info
-from plugin import db_tools, db_parse, sage, config, sage, is_admin
+from plugin import config, is_admin, sage, sage
 from inlinekeyboard import quickban
 from locales import i18n
 

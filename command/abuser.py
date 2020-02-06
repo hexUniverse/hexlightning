@@ -1,6 +1,5 @@
 from operator import itemgetter
 
-import pysnooper
 from plugin import db_tools, db_parse
 from plugin import sage
 import pygal

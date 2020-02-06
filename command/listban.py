@@ -1,5 +1,3 @@
-import re
-import sys
 import time
 import logging
 from html import escape
@@ -8,12 +6,10 @@ from datetime import datetime, timedelta
 from munch import Munch
 from dateutil import tz
 from parse import search
-from pymongo import ReturnDocument
 
 import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext.dispatcher import run_async
-from telegram.error import *
+from telegram.error import BadRequest, Unauthorized
 
 
 class bang:

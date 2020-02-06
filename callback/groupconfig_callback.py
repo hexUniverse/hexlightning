@@ -2,13 +2,11 @@ import logging
 import coloredlogs
 from html import escape
 
-import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import *
+from telegram.error import _
 from telegram.ext.dispatcher import run_async
 
-from locales import i18n, support_lang
-from plugin import config, callabck_parse, emojitags, to_emoji
+from locales import i18n
+from plugin import callabck_parse, emojitags, to_emoji
 from plugin import db_parse, db_tools, sage, is_admin
 
 from inlinekeyboard import generate

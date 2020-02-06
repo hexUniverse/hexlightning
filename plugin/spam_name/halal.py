@@ -1,4 +1,3 @@
-from telegram.ext.dispatcher import run_async
 from plugin import langdetec
 
 

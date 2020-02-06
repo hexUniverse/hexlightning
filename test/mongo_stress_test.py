@@ -1,7 +1,6 @@
 import pymongo
 import time
 import datetime
-import os
 import sys
 
 connection = pymongo.MongoClient('172.17.0.2')

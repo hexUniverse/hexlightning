@@ -2,7 +2,7 @@ import gettext
 import logging
 import coloredlogs
 from plugin import db_parse, db_tools, config
-from plugin import to_emoji, to_list, druation
+from plugin import to_emoji
 from plugin.banyourwords import banyourwords
 from locales import i18n
 

@@ -1,6 +1,5 @@
 import gettext
 
-from telegram.ext import Filters
 
 from plugin import db_tools, db_parse
 

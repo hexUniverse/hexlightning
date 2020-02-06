@@ -1,11 +1,8 @@
 import time
-import json
 from html import escape
 from telegram.ext.dispatcher import run_async
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-from plugin import db_parse, db_tools, sage, is_admin
-from plugin import to_string, to_list, to_emoji, emojitags
+from plugin import db_tools, is_admin, sage
 from locales import i18n
 from inlinekeyboard import generate
 

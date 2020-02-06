@@ -1,7 +1,5 @@
 import requests
-from telegram.ext.dispatcher import run_async
 
-from plugin import db_parse, db_tools
 # from  import checker_result
 # import event.xtext_filter
 # from event.xtext_filter.extend_links import checker_result

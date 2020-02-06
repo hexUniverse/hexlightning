@@ -1,13 +1,11 @@
 import logging
 import coloredlogs
 
-import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext.dispatcher import run_async
 
 from locales import i18n
-from plugin import config, callabck_parse, emojitags, to_emoji
-from plugin import db_parse, db_tools
+from plugin import callabck_parse, emojitags
+from plugin import db_tools
 
 from inlinekeyboard import generate
 

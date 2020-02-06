@@ -1,7 +1,5 @@
 import io
 import time
-import logging
-import coloredlogs
 
 from parse import search
 
@@ -13,7 +11,7 @@ from telegram.ext import Filters
 
 from plugin import db_parse, db_tools, config, homicide, excalibur, imagehash
 from plugin import sage, banyourwords, sticker_judge
-from plugin import to_emoji, to_list, to_string, druation, emojitags
+from plugin import druation, emojitags, to_emoji
 from locales import i18n
 #import pysnooper
 taiwan_country = tz.gettz('Asia/Taipei')

@@ -3,7 +3,7 @@ import logging
 import coloredlogs
 
 from plugin import db_parse, db_tools, gatejieitai
-from plugin import to_emoji, to_list, to_string, tidy
+from plugin import to_string
 from locales import i18n
 
 from telegram.ext.dispatcher import run_async

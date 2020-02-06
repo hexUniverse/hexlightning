@@ -6,10 +6,9 @@ import coloredlogs
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 
-from plugin import db_parse, db_tools, gatejieitai, sage, homicide, inherit_excalibur
+from plugin import db_tools, gatejieitai, homicide, inherit_excalibur, sage
 from plugin.excalibur import announce
 
-from locales import i18n
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
 mongo = db_tools.use_mongo()

@@ -1,4 +1,3 @@
-import sys
 from io import _io
 from PIL import Image
 import numpy

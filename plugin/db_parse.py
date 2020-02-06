@@ -1,9 +1,8 @@
-import json
 import logging
 import coloredlogs
 from html import escape
 from dateutil import tz
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from plugin.emojitags import to_string, to_list, to_emoji, druation
 

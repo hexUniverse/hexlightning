@@ -1,5 +1,4 @@
 import io
-import json
 import time
 import gettext
 import logging
@@ -7,8 +6,8 @@ import coloredlogs
 
 import locales
 from plugin import nsfw_detect, imagehash, homicide
-from plugin import db_parse, db_tools, excalibur, inherit_excalibur, gatejieitai, config
-from plugin import is_sage, in_shield, is_admin, is_participate_white
+from plugin import config, db_parse, db_tools, excalibur
+from plugin import in_shield, is_admin, is_participate_white
 from plugin import druation
 
 from datetime import datetime, timedelta

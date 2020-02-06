@@ -3,14 +3,11 @@ import coloredlogs
 from datetime import datetime, timedelta
 from dateutil import tz
 
-import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext.dispatcher import run_async
 
 from locales import i18n
-from plugin import config, callabck_parse, emojitags, to_emoji, excalibur, druation
-from plugin import db_parse, db_tools, sage
-from inlinekeyboard import generate
+from plugin import callabck_parse, config, druation, excalibur
+from plugin import sage
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')

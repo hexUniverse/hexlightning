@@ -1,5 +1,3 @@
-import pysnooper
-import gettext
 import time
 import logging
 import coloredlogs
@@ -10,8 +8,8 @@ from datetime import datetime, timedelta
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 
-from plugin import db_parse, db_tools, gatejieitai, sage, sticker_judge, excalibur
-from plugin import druation, is_admin, config, homicide
+from plugin import db_parse, db_tools, excalibur, sage, sticker_judge
+from plugin import config, homicide, is_admin
 from plugin.excalibur import announce
 
 from locales import i18n
