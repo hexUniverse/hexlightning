@@ -3,6 +3,7 @@ import coloredlogs
 
 from telegram import InlineKeyboardMarkup
 from telegram.ext.dispatcher import run_async
+from telegram.error import *
 
 from plugin import callabck_parse
 
