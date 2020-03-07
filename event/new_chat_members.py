@@ -1,26 +1,16 @@
-import re
-import sys
 import time
 import logging
 import coloredlogs
 from html import escape
-from datetime import datetime, timedelta
 
-from dateutil import tz
 
-from pymongo import ReturnDocument
-
-from parse import search
-
-import telegram
-from telegram.error import *
-from telegram.ext import Filters
+from telegram.error import BadRequest, _
 from telegram.ext.dispatcher import run_async
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-from plugin import db_parse, db_tools, config, gatejieitai, to_string
-from plugin import langdetec, checker, banyourwords
+from plugin import config, db_parse, db_tools, gatejieitai
+from plugin import banyourwords, checker
 from event import guide  # , new_member_check_ban
 from locales import i18n
 
@@ -40,7 +30,8 @@ def new_chat_members(bot, update):
     redis = db_tools.use_redis()
 
     # bot got invite
-    if len(update.message.new_chat_members) == 1 and update.message.new_chat_members[0].id == bot.id:
+    if len(
+            update.message.new_chat_members) == 1 and update.message.new_chat_members[0].id == bot.id:
         # 處理紀錄
         if update.message.chat.type == 'group':
             update.message.reply_text(_('多比只為住在大房子(supergroup)的主人服務')).result()
@@ -95,7 +86,6 @@ def new_chat_members(bot, update):
             upsert=True
         )
 
-    # elif update.message.from_user.id == update.message.new_chat_members[0].id:
     else:
         '''
         new chat member flow
@@ -106,7 +96,6 @@ def new_chat_members(bot, update):
             - kick, return
         - sent to abyss channel and record
         '''
-        # update.message.from_user.id == update.message.new_chat_members[0].id
         for new_member in update.message.new_chat_members:
             border_keeper = gatejieitai(
                 bot, update, (update.message.chat.id, new_member.id))
@@ -132,11 +121,13 @@ def new_chat_members(bot, update):
                 else:
                     text += _(banyourwords.temp.format(reason=reason,
                                                        date=border_keeper.current.date_text))
-                text += _('\n處刑人：<code>{uid}</code>\n'
-                          '有任何問題請至 @hexjudge 詢問').format(uid=border_keeper.current.opid)
+                text += _(
+                    '\n處刑人：<code>{uid}</code>\n'
+                    '有任何問題請至 @hexjudge 詢問').format(
+                    uid=border_keeper.current.opid)
                 try:
                     update.message.delete()
-                except:
+                except BaseException:
                     pass
                 try:
                     bot.restrict_chat_member(
@@ -152,13 +143,13 @@ def new_chat_members(bot, update):
                     try:
                         sent = bot.send_message(
                             update.message.chat.id, text, parse_mode='html')
-                    except:
+                    except BaseException:
                         pass
                     time.sleep(15)
                     try:
                         bot.kick_chat_member(
                             update.message.chat.id, new_member.id)
-                    except:
+                    except BaseException:
                         pass
                     bot.delete_message(update.message.chat.id,
                                        sent.result().message_id)

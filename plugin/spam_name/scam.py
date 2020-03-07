@@ -1,6 +1,4 @@
 import re
-import telegram
-from telegram.ext import run_async
 
 
 class scam:
@@ -10,7 +8,7 @@ class scam:
     def detect(self, full_name):
         '''
         银行卡|四件套|銀行儲蓄卡
-        return: 
+        return:
             tuple (True, 'Scam_ads', [result])
         '''
         pattern = '(银行卡|四件套|銀行儲蓄卡|實力卡商|黑產指導|暗網資源)'

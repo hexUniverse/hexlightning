@@ -1,5 +1,4 @@
 import io
-import json
 import time
 import gettext
 import logging
@@ -7,8 +6,8 @@ import coloredlogs
 
 import locales
 from plugin import nsfw_detect, imagehash, homicide
-from plugin import db_parse, db_tools, excalibur, inherit_excalibur, gatejieitai, config
-from plugin import is_sage, in_shield, is_admin, is_participate_white
+from plugin import config, db_parse, db_tools, excalibur
+from plugin import in_shield, is_admin, is_participate_white
 from plugin import druation
 
 from datetime import datetime, timedelta
@@ -48,7 +47,8 @@ def xmedia(bot, update):
         user = db_parse.user()
         user.parse(query_user)
         if user.current:
-            if datetime.fromtimestamp(user.current.until).astimezone(taiwan_country).year == 1970:
+            if datetime.fromtimestamp(user.current.until).astimezone(
+                    taiwan_country).year == 1970:
                 return
     if is_admin(bot, update):
         return
@@ -63,10 +63,9 @@ def xmedia(bot, update):
     middle = i.indexing()
 
     query_xmedia = list(mongo.xmedia.find(
-        {'photo.indexing': {'$gte': middle-10, '$lte': middle+10}}))
+        {'photo.indexing': {'$gte': middle - 10, '$lte': middle + 10}}))
     if query_xmedia == []:
         logger.info('no target found')
-        # return
     if query_xmedia:
         compare_list = []
         for parse in query_xmedia:
@@ -75,7 +74,7 @@ def xmedia(bot, update):
             compare_list.append(media.hash)
 
         compare_result = i.plooks_like(compare_list)
-        if compare_result[-1].judge == True:
+        if compare_result[-1].judge:
 
             query_photo = mongo.xmedia.find_one(
                 {'photo.hash': compare_result[-1].hash})
@@ -94,34 +93,36 @@ def xmedia(bot, update):
             else:
                 return
 
-            # query_xmedia = mongo.xmedia.find_one(
-            #    {'photo.hash': compare_result[-1].hash})
-            #media_ = db_parse.media()
-            # media_.parse(query_xmedia)
-
             check = bool(
                 set(group.config.sub_ban_list).intersection(list(media.tags)))
-            # logger.info(media.tags)
-            # update.message.reply_text(media.tags)
-            if check == False:
+            if not check:
                 pass
             else:
-                # query_user = mongo.user.find_one(
-                #    {'chat.id': update.message.from_user.id})
                 try:
                     sent = update.message.forward(
                         config.getint('log', 'evidence')).message_id
-                except:
+                except BaseException:
                     sent = 2
                 else:
                     until = druation(list(media.tags_list))
-                    excalibur(bot, update, update.message.from_user.id, media.tags_list,
-                            media.opid, until=until, reason=media.reason, evidence=sent, user=update.message.from_user)
-                    announce_ban = _('名字：{fullname}\n'
-                                    '傳送了已被標記為 <code>{tags}</code> 的圖片，已進行處置。').format(fullname=update.message.from_user.mention_html(), tags=media.tags_text)
+                    excalibur(
+                        bot,
+                        update,
+                        update.message.from_user.id,
+                        media.tags_list,
+                        media.opid,
+                        until=until,
+                        reason=media.reason,
+                        evidence=sent,
+                        user=update.message.from_user)
+                    announce_ban = _(
+                        '名字：{fullname}\n'
+                        '傳送了已被標記為 <code>{tags}</code> 的圖片，已進行處置。').format(
+                        fullname=update.message.from_user.mention_html(),
+                        tags=media.tags_text)
                 try:
                     update.message.delete()
-                except:
+                except BaseException:
                     pass
                 try:
                     bot.restrict_chat_member(
@@ -139,7 +140,7 @@ def xmedia(bot, update):
                     try:
                         bot.delete_message(
                             update.message.chat.id, sent.message_id)
-                    except:
+                    except BaseException:
                         pass
                     finally:
                         homicide(bot, update, update.message.from_user.id)
@@ -147,13 +148,13 @@ def xmedia(bot, update):
 
     # NSFW DETECT #
     query_group = mongo.group.find_one({'chat.id': update.message.chat.id})
-    if query_group == None:
+    if query_group is None:
         return
     group = db_parse.group()
     group.parse(query_group)
     check = bool(
         set(group.config.sub_ban_list_text).intersection(['porn']))
-    if check == False:
+    if not check:
         return
     if group.config.ml_nsfw in [None, False]:
         return
@@ -192,7 +193,7 @@ def xmedia(bot, update):
             )
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             sent = update.message.reply_html(text).result()
             until = int((datetime.now(taiwan_country) +
@@ -200,7 +201,15 @@ def xmedia(bot, update):
 
             time.sleep(10)
             bot.delete_message(update.message.chat_id, sent.message_id)
-            excalibur(bot, update, update.message.from_user.id, ['porn'],
-                      bot.id, until=until, reason='NSFW 自動偵測', evidence=evidence.message_id, user=update.message.from_user)
+            excalibur(
+                bot,
+                update,
+                update.message.from_user.id,
+                ['porn'],
+                bot.id,
+                until=until,
+                reason='NSFW 自動偵測',
+                evidence=evidence.message_id,
+                user=update.message.from_user)
 
             homicide(bot, update, update.message.from_user.id)

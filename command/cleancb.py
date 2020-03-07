@@ -12,12 +12,13 @@ def cleancb(bot, update):
     kb = ReplyKeyboardMarkup([[ReplyKeyboardRemove]])
     try:
         update.message.delete()
-    except:
+    except BaseException:
         pass
     sent = update.message.reply_text(
-        _('已清除鍵盤'), reply_markup=ReplyKeyboardRemove(remove_keyboard=True)).result()
+        _('已清除鍵盤'), reply_markup=ReplyKeyboardRemove(
+            remove_keyboard=True)).result()
     time.sleep(5)
     try:
         sent.delete()
-    except:
+    except BaseException:
         pass

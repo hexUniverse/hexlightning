@@ -1,6 +1,4 @@
 import re
-import telegram
-from telegram.ext import run_async
 
 
 class dexcoin_spam:
@@ -11,7 +9,7 @@ class dexcoin_spam:
         '''
         informationbot|dexinfobot|announcementbot
 
-        return: 
+        return:
             tuple (True, 'Coin_Dex_Spam', [result])
         '''
         pattern = '(informationbot|dexinfobot|announcementbot|binanceairdropbot)'

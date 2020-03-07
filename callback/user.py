@@ -2,9 +2,8 @@ import time
 import logging
 from html import escape
 
-import telegram
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import *
+from telegram.error import BadRequest, TelegramError, TimedOut, Unauthorized
 from telegram.ext.dispatcher import run_async
 
 
@@ -55,14 +54,14 @@ class handler:
                             '''
                             2018-12-10 20:05:46,355 - __main__ - WARNING - Not enough rights to restrict/unrestrict chat member
                             2018-12-10 20:05:46,361 - telegram.utils.promise - ERROR - An uncaught error was
-                                raised while running the promise                                               
-                                Traceback (most recent call last):                                              
-                                File "/usr/local/lib/python3.6/dist-packages/telegram/utils/promise.py", line 
-                                57, in run                                                                      
-                                    self._result = self.pooled_function(*self.args, **self.kwargs)              
+                                raised while running the promise
+                                Traceback (most recent call last):
+                                File "/usr/local/lib/python3.6/dist-packages/telegram/utils/promise.py", line
+                                57, in run
+                                    self._result = self.pooled_function(*self.args, **self.kwargs)
                                 File "/data/Drive/hexPort/hexlightning/callback.py", line 49, in callbackQuery
-                                Handler                                                                         
-                                    callback_data += f':+{target_id}'                                           
+                                Handler
+                                    callback_data += f':+{target_id}'
                                 TypeError: unsupported operand type(s) for +=: 'NoneType' and 'str'
                             '''
                             callback_data += f':+{target_id}'
@@ -100,7 +99,6 @@ class handler:
                                     edit_msg += '\n' + e.message
                                     if e.message == 'Have no rights to send a message':
                                         pass
-                                # bot.leave_chat(target_chat_id)
                                 callback_data = None
                             elif e.message == 'Forbidden: bot is not a member of the supergroup chat':
                                 query.answer('bot 並不在該群。', show_alert=True)
@@ -128,10 +126,12 @@ class handler:
                                 if e.message == 'Not enough rights to restrict/unrestrict chat member':
                                     query.answer('沒有力量去對那個人上下其手。')
                                     return
-                    callback_data = [f'user bypass {target_chat_id}:+{targets[0][1:]}:-{targets[1][1:]}',
-                                     f'user bypass {target_chat_id}:-{targets[0][1:]}:+{targets[1][1:]}',
-                                     f'user bypass {target_chat_id}:+{targets[0][1:]}:+{targets[1][1:]}',
-                                     f'user bypass {target_chat_id}:-{targets[0][1:]}:-{targets[1][1:]}', ]
+                    callback_data = [
+                        f'user bypass {target_chat_id}:+{targets[0][1:]}:-{targets[1][1:]}',
+                        f'user bypass {target_chat_id}:-{targets[0][1:]}:+{targets[1][1:]}',
+                        f'user bypass {target_chat_id}:+{targets[0][1:]}:+{targets[1][1:]}',
+                        f'user bypass {target_chat_id}:-{targets[0][1:]}:-{targets[1][1:]}',
+                    ]
                     keyboard = [
                         [InlineKeyboardButton("掐死被邀人", callback_data=callback_data[0]),  # kick from_user group
                          InlineKeyboardButton("掐死邀請人", callback_data=callback_data[1])],  # kick new_member group
@@ -142,21 +142,32 @@ class handler:
                         target_act, target_id = target[:1], target[1:]
                         if target_act == '-':
                             bot.unban_chat_member(target_chat_id, target_id)
-                    callback_data = [f'user bypass {target_chat_id}:-{targets[0][1:]}',
-                                     f'user bypass {target_chat_id}:+{targets[0][1:]}']
-                    keyboard = [[InlineKeyboardButton('阿拉花瓜', callback_data=callback_data[0]),
-                                 InlineKeyboardButton('他還只是個孩子啊', callback_data=callback_data[1])]]
+                    callback_data = [
+                        f'user bypass {target_chat_id}:-{targets[0][1:]}',
+                        f'user bypass {target_chat_id}:+{targets[0][1:]}']
+                    keyboard = [
+                        [
+                            InlineKeyboardButton(
+                                '阿拉花瓜',
+                                callback_data=callback_data[0]),
+                            InlineKeyboardButton(
+                                '他還只是個孩子啊',
+                                callback_data=callback_data[1])]]
             else:  # TODO raise?
                 pass
         elif qtype == 'bot':
             keyboard = None
             # check cliker right
-            if query.from_user.id not in [self.config.getint('admin', 'uid'), 297394549, 184805205]:
+            if query.from_user.id not in [
+                    self.config.getint(
+                        'admin',
+                        'uid'),
+                    297394549,
+                    184805205]:
                 query.answer('你沒有那個屁股最好別按ㄛ')
                 return
             if qact == 'leave':
                 try:
-                    #bot.send_message(qdata, '本宮先行離開了。').result()
                     if bot.leave_chat(qdata):
                         edit_msg += f'\nleave by: {query.from_user.mention_html()}'
                         self.db.group.find_one_and_delete(
@@ -183,4 +194,3 @@ class handler:
                 break
             except TimedOut:
                 time.sleep(5)
-                pass

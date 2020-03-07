@@ -1,6 +1,4 @@
 import re
-import telegram
-from telegram.ext import run_async
 
 
 class testnet:
@@ -10,7 +8,7 @@ class testnet:
     def detect(self, full_name):
         '''
         Testnet
-        return: 
+        return:
             tuple (True, 'QQ_Spam', [result])
         '''
         pattern = '(testnet)'

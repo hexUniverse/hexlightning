@@ -1,5 +1,4 @@
 from plugin import db_parse, db_tools
-from plugin import sage
 mongo = db_tools.use_mongo()
 redis = db_tools.use_redis()
 

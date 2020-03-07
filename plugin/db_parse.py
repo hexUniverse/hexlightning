@@ -1,9 +1,8 @@
-import json
 import logging
 import coloredlogs
 from html import escape
 from dateutil import tz
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from plugin.emojitags import to_string, to_list, to_emoji, druation
 
@@ -16,7 +15,6 @@ class user:
         self.id = None
         self.first_name = None
         self.last_name = None
-        # f'{self.first_name}{self.last_name}' if self.first_name else self.first_name
         self.fullname = None
         self.mention_html = None
         self.username = None
@@ -30,7 +28,7 @@ class user:
         self.history = None
 
     def parse(self, data):
-        if data == None:
+        if data is None:
             return None
         self.parse_data = data
         user = data['chat']
@@ -72,9 +70,6 @@ class user:
             self.history = user['history']
         if 'current' in user.keys():
             self.current = user['current']
-
-        # if 'config_lang' in user.keys():
-        #    self.config_lang = user['config_lang']
 
     class config_:
         def __init__(self, data):
@@ -131,8 +126,6 @@ class user:
                     self.id = self.data['id']
                 if 'chat' in self.data.keys():
                     self.chat = self.chat_(self.data['chat'])
-                    # self.inherit = self.inherit_(self.data['inherit'])
-                    #self.chat = self.data['chat']
                 if 'evidence' in self.data.keys():
                     self.evidence = self.data['evidence']
 
@@ -153,13 +146,12 @@ class group:
         self.title = None
         self.id = None
         self.white_participate = None
-        # self.config = self.config_()
         self.config = None
         self.config_list = {}
         self.config_list_k = {}
 
     def parse(self, data):
-        if data == None:
+        if data is None:
             return None
         chat = data['chat']
         if 'config' in chat.keys():
@@ -167,8 +159,11 @@ class group:
 
             for content in chat['config']:
                 self.config_list[content] = chat['config'][content]
-                # self.config_list.append(content)
-                if content not in ['lang_code', 'configuring', 'sub_ban_list', 'all']:
+                if content not in [
+                    'lang_code',
+                    'configuring',
+                    'sub_ban_list',
+                        'all']:
                     self.config_list_k[content] = chat['config'][content]
 
         if 'title' in chat.keys():
@@ -206,7 +201,6 @@ class group:
 
 class sticker:
     def __init__(self):
-        # self.id = None
         self.set_name = None
         self.tags = None
         self.tags_text = None
@@ -215,8 +209,6 @@ class sticker:
         self.evidence = None
 
     def parse(self, data):
-        # if 'id' in data['sticker'].keys():
-        #    self.id = data['sticker']['id']
         if 'set_name' in data['sticker'].keys():
             self.set_name = data['sticker']['set_name']
         if 'tags' in data['sticker'].keys():
@@ -248,7 +240,7 @@ class media:
         if 'hash' in data['photo'].keys():
             try:
                 self.hash = data['photo']['hash']
-            except:
+            except BaseException:
                 logger.critical(data)
         if 'score' in data['photo'].keys():
             self.score = data['photo']['score']

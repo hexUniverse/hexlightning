@@ -2,7 +2,7 @@ import gettext
 import logging
 import coloredlogs
 from plugin import db_parse, db_tools, config
-from plugin import to_emoji, to_list, druation
+from plugin import to_emoji
 from plugin.banyourwords import banyourwords
 from locales import i18n
 
@@ -15,13 +15,21 @@ coloredlogs.install(level='INFO')
 _ = gettext.gettext
 
 
-def parser(uid, tags, opid, date=None, until=0, reason=None, evidence=0, user=None):
+def parser(
+        uid,
+        tags,
+        opid,
+        date=None,
+        until=0,
+        reason=None,
+        evidence=0,
+        user=None):
     tags = to_emoji(tags)
     if '💩'not in tags:
         tags = f'💩{tags}'
     else:
         tags = tags
-    if date == None:
+    if date is None:
         date = int(datetime.now(taiwan_country).timestamp())
 
     current = {'date': date, 'until': until, 'opid': opid,
@@ -31,14 +39,21 @@ def parser(uid, tags, opid, date=None, until=0, reason=None, evidence=0, user=No
     return current
 
 
-def announce(uid, tags, opid, date=None, until=0, reason=None, evidence=2, query_user=None, reply=False):
-    if reason == None:
+def announce(
+        uid,
+        tags,
+        opid,
+        date=None,
+        until=0,
+        reason=None,
+        evidence=2,
+        query_user=None,
+        reply=False):
+    if reason is None:
         reason = ', '.join(tags)
 
     text = ''
     if query_user:
-        # user = db_parse.user()
-        # user.parse(query_user)
         user = query_user
         if uid < 0:
             if query_user:
@@ -46,7 +61,6 @@ def announce(uid, tags, opid, date=None, until=0, reason=None, evidence=2, query
         else:
             if query_user:
                 if user.fullname:
-                    #
                     text += _(
                         f'名字：<a href="tg://user?id={user.id}">{user.fullname}</a>\n')
     tags_text = ', '.join(tags)
@@ -61,7 +75,18 @@ def announce(uid, tags, opid, date=None, until=0, reason=None, evidence=2, query
     return text
 
 
-def excalibur(bot, update, uid, tags, opid, date=None, until=0, reason=None, evidence=2, user=None, reply=False):
+def excalibur(
+        bot,
+        update,
+        uid,
+        tags,
+        opid,
+        date=None,
+        until=0,
+        reason=None,
+        evidence=2,
+        user=None,
+        reply=False):
     i18n(update).loads.install(True)
     mongo = db_tools.use_mongo()
     redis = db_tools.use_redis()
@@ -76,10 +101,10 @@ def excalibur(bot, update, uid, tags, opid, date=None, until=0, reason=None, evi
         if user_.current:
             # 新增 current, 舊的移動到 history array
             user_update = {'$push': {'history': user_.current_raw},
-                           '$set':  {'current': parse}}
+                           '$set': {'current': parse}}
             mongo.user.find_one_and_update({'chat.id': uid}, user_update)
 
-        elif user_.current == None:
+        elif user_.current is None:
             # 不是拉 警察這是我第一次拉
             # : 欸 我也是第一次開罰單啊 Q_Q
             # 辣我可以順便要你的電話嘛？ OS: 好 好...好可愛
@@ -99,8 +124,16 @@ def excalibur(bot, update, uid, tags, opid, date=None, until=0, reason=None, evi
     if str(uid).encode() not in ban_cache:
         redis.lpush('ban_cache', uid)
     if query_user:
-        return announce(uid, tags, opid, date=None, until=until,
-                        reason=reason, evidence=evidence, query_user=user_, reply=False)
+        return announce(
+            uid,
+            tags,
+            opid,
+            date=None,
+            until=until,
+            reason=reason,
+            evidence=evidence,
+            query_user=user_,
+            reply=False)
     else:
         return announce(uid, tags, opid, date=None, until=until,
                         reason=reason, evidence=evidence)
@@ -115,8 +148,7 @@ def inherit_excalibur(bot, update, inherit_from: db_parse.user):
     '''
     mongo = db_tools.use_mongo()
     query_user = mongo.user.find_one({'chat.id': update.message.from_user.id})
-    # user_ = db_parse.user()
-    if query_user == None:
+    if query_user is None:
         user_update = {'chat': update.message.from_userto_dict()}
         mongo.user.insert(user_update)
         query_user = mongo.user.find_one(
@@ -128,7 +160,7 @@ def inherit_excalibur(bot, update, inherit_from: db_parse.user):
     channel = config.getint('log', 'evidence')
     try:
         evidence = update.message.forward(channel).message_id
-    except:
+    except BaseException:
         evidence = 2
 
     current = inherit_from.current_raw
@@ -139,9 +171,6 @@ def inherit_excalibur(bot, update, inherit_from: db_parse.user):
         },
         'evidence': inherit_from.current.evidence
     }}
-    #current['inherit']['id'] = inherit_from.id
-    #current['inherit']['chat']['id'] = update.message.chat.id
-    #current['inherit']['evidence'] = inherit_from.current.evidence
     current['evidence'] = evidence
     current.update(update_user)
     logger.info(current)
@@ -149,11 +178,11 @@ def inherit_excalibur(bot, update, inherit_from: db_parse.user):
     if user_.current:
         # 新增 current, 舊的移動到 history array
         user_update = {'$push': {'history': user_.current_raw},
-                       '$set':  {'current': current}}
+                       '$set': {'current': current}}
         mongo.user.find_one_and_update(
             {'chat.id': update.message.from_user.id}, user_update)
 
-    elif user_.current == None:
+    elif user_.current is None:
         # 不是拉 警察這是我第一次拉
         # : 欸 我也是第一次開罰單啊 Q_Q
         # 辣我可以順便要你的電話嘛？ OS: 好 好...好可愛

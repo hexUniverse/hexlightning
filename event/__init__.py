@@ -1,6 +1,5 @@
 from .guide import guide
 
-#from .new_member_check_ban import new_member_check_ban
 from .new_member_check_name import new_member_check_name
 from .new_chat_members import new_chat_members
 

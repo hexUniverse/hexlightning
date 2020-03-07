@@ -1,8 +1,6 @@
 from plugin import sage, db_tools
-#import pysnooper
 
 
-#@pysnooper.snoop()
 def pregnant(bot, update, args):
     # /add 123 lucifer
     mongo = db_tools.use_mongo()
@@ -14,7 +12,7 @@ def pregnant(bot, update, args):
         return
     try:
         uid = int(args[0])
-    except:
+    except BaseException:
         update.message.reply_text('UID 參數錯誤')
         return
     else:
@@ -27,7 +25,7 @@ def pregnant(bot, update, args):
             update.message.reply_text('已經有職位了。')
             return
         user = mongo.user.find_one({'chat.id': uid})
-        if user == None:
+        if user is None:
             update.message.reply_text('我不認識這人啊 誰啊？')
             return
 
@@ -47,7 +45,7 @@ def marry(bot, update, args):
         return
     try:
         uid = int(args[0])
-    except:
+    except BaseException:
         update.message.reply_text('UID 參數錯誤')
         return
     else:

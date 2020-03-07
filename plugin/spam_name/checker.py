@@ -6,7 +6,7 @@ from telegram.ext.dispatcher import run_async
 
 from plugin import config
 from plugin import db_parse, db_tools, to_emoji
-from plugin.spam_name import *
+from plugin.spam_name import _, ad82cc, dexcoin_spam, halal, mdfk_ads, porn_1861, qqspam, scam, testnet
 from plugin.excalibur import excalibur
 checker_list = [dexcoin_spam, mdfk_ads,
                 porn_1861, qqspam, scam, testnet, halal, ad82cc]
@@ -15,7 +15,6 @@ checker_list = [dexcoin_spam, mdfk_ads,
 @run_async
 def checker(bot, update, new_member):
     # halal 合併 /name
-    # i18n(update).loads.install(True)
     locales.i18n(update).loads.install(True)
     mongo = db_tools.use_mongo()
     user = db_parse.user()
@@ -26,11 +25,9 @@ def checker(bot, update, new_member):
     group.parse(query_group)
     for check in checker_list:
         do_check = check()
-        # return (True, 'QQ_Spam', result)
         checker_result, checker_name, checker_match = do_check.detect(
             new_member.full_name.lower())
-        # print(do_check.detect(new_member.full_name.lower()))
-        if group.config == None:
+        if group.config is None:
             # 無心市政
             # 城市不築 敗事有瑜
             return
@@ -46,11 +43,16 @@ def checker(bot, update, new_member):
 
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             try:
-                bot.restrict_chat_member(update.message.chat_id, new_member.id, until_date=None,
-                                         can_send_messages=None, can_send_media_messages=None, can_send_other_messages=None)
+                bot.restrict_chat_member(
+                    update.message.chat_id,
+                    new_member.id,
+                    until_date=None,
+                    can_send_messages=None,
+                    can_send_media_messages=None,
+                    can_send_other_messages=None)
             except BadRequest:
                 text = _('海克斯希貝兒先知系統偵測到一個<code>心靈指數過高用戶</code>，請給予相應權限作出處理。\n') + \
                     _(f'名稱：{new_member.mention_html()}\n') + \

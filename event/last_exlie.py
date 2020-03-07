@@ -6,10 +6,9 @@ import coloredlogs
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 
-from plugin import db_parse, db_tools, gatejieitai, sage, homicide, inherit_excalibur
+from plugin import db_tools, gatejieitai, homicide, inherit_excalibur, sage
 from plugin.excalibur import announce
 
-from locales import i18n
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
 mongo = db_tools.use_mongo()
@@ -20,8 +19,6 @@ _ = gettext.gettext
 
 @run_async
 def last_exlie(bot, update):
-    # i18n(update).loads.install(True)
-    # i18n(update).loads.install(True)
     forward = None
     if update.message.forward_from:
         forward = update.message.forward_from
@@ -51,15 +48,18 @@ def last_exlie(bot, update):
             return
 
         if forward_check and forward_check.current:
-            # try:
-            #    update.message.delete()
-            # except:
-            #    pass
             keeps = False
             try:
                 update.message.from_user.fullname = update.message.from_user.full_name
-                msg = _(announce(update.message.from_user.id, forward_check.current.tags_list, forward_check.current.opid, until=forward_check.current.until,
-                                 reason=forward_check.current.reason, evidence=forward_check.current.evidence, query_user=update.message.from_user))
+                msg = _(
+                    announce(
+                        update.message.from_user.id,
+                        forward_check.current.tags_list,
+                        forward_check.current.opid,
+                        until=forward_check.current.until,
+                        reason=forward_check.current.reason,
+                        evidence=forward_check.current.evidence,
+                        query_user=update.message.from_user))
                 bot.restrict_chat_member(
                     update.message.chat.id, update.message.from_user.id)
             except BadRequest as e:
@@ -75,7 +75,7 @@ def last_exlie(bot, update):
                          'ID：<code>{chat_id}</code>\n'
                          '{spliter}'
                          '\n{msg}').format(
-                             spliter='='*10,
+                             spliter='=' * 10,
                              chat_title='title',
                              chat_id=forward_check.id,
                              msg=msg)
@@ -85,16 +85,16 @@ def last_exlie(bot, update):
             time.sleep(10)
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             try:
                 sent.delete()
-            except:
+            except BaseException:
                 pass
             try:
                 bot.kick_chat_member(update.message.chat.id,
                                      update.message.from_user.id)
-            except:
+            except BaseException:
                 pass
             else:
                 update_user = {'$addToSet': {
@@ -109,12 +109,19 @@ def last_exlie(bot, update):
     if user_check and user_check.current:
         try:
             update.message.delete()
-        except:
+        except BaseException:
             pass
         keeps = False
         try:
-            msg = _(announce(user_check.id, user_check.current.tags_list, user_check.current.opid, until=user_check.current.until,
-                             reason=user_check.current.reason, evidence=user_check.current.evidence, query_user=user_check))
+            msg = _(
+                announce(
+                    user_check.id,
+                    user_check.current.tags_list,
+                    user_check.current.opid,
+                    until=user_check.current.until,
+                    reason=user_check.current.reason,
+                    evidence=user_check.current.evidence,
+                    query_user=user_check))
             bot.restrict_chat_member(
                 update.message.chat.id, update.message.from_user.id)
         except BadRequest as e:
@@ -132,12 +139,12 @@ def last_exlie(bot, update):
         time.sleep(10)
         try:
             sent.delete()
-        except:
+        except BaseException:
             pass
         try:
             bot.kick_chat_member(update.message.chat.id,
                                  update.message.from_user.id)
-        except:
+        except BaseException:
             pass
         else:
             update_user = {'$addToSet': {
@@ -147,9 +154,7 @@ def last_exlie(bot, update):
 
     if forward_check:
         # 轉傳是 until 0
-        # insert = False
         if forward_check.current.until == 0:
-            # bot, update, inherit_from, inherit_to
             inherit_excalibur(bot, update, forward_check)
 
         # 轉傳不是 until 0
@@ -158,31 +163,13 @@ def last_exlie(bot, update):
                 if forward_check.current.until > user_check.current.until:
                     logger.info(forward_check.current.until)
                     logger.info(user_check.current.until)
-                    # update_user = {
-                    #    '$set': {'current': forward_check.current_raw},
-                    #    '$push': {'history': user_check.current_raw}}
                     inherit_excalibur(bot, update, forward_check)
             # 檢查 ban 比較久的有沒有被繼承
             # 這樣ㄛ！！
                 else:
                     return
             elif user_check == False:
-                # update_user = {
-                #    '$set': {'current': forward_check.current_raw}}
                 inherit_excalibur(bot, update, forward_check)
-            # else:
-            #    # 繼承
-            #    insert = True
-            #    forward_check.current_raw['inherit_id'] = forward_check.id
-            #    forward_check.current_raw['inherit_chat'] = update.message.chat.id
-            #    update_user = {'current': forward_check.current_raw}
-            #    update_user.update(
-            #        {'chat': update.message.from_user.to_dict()})
-        # if update_user and insert:
-        #    mongo.user.insert(update_user)
-        # elif update_user:
-        #    mongo.user.find_one_and_update(
-        #        {'chat.id': update.message.from_user.id}, update_user)
         update_ban = {
             '$addToSet': {
                 'chat.banned_participate': update.message.chat.id},

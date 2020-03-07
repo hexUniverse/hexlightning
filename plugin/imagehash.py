@@ -1,4 +1,3 @@
-import sys
 from io import _io
 from PIL import Image
 import numpy
@@ -57,12 +56,14 @@ class hashing_result(object):
         return not numpy.array_equal(self.hash.flatten(), other.hash.flatten())
 
     def __hash__(self):
-        # this returns a 8 bit integer, intentionally shortening the information
-        return sum([2**(i % 8) for i, v in enumerate(self.hash.flatten()) if v])
+        # this returns a 8 bit integer, intentionally shortening the
+        # information
+        return sum([2**(i % 8)
+                    for i, v in enumerate(self.hash.flatten()) if v])
 
     def _binary_array_to_hex(self, arr):
         bit_string = ''.join(str(b) for b in 1 * arr.flatten())
-        width = int(numpy.ceil(len(bit_string)/4))
+        width = int(numpy.ceil(len(bit_string) / 4))
         return '{:0>{width}x}'.format(int(bit_string, 2), width=width)
 
 
@@ -71,7 +72,7 @@ class hashing:
         self.image = self.open_img(image)
 
     def open_img(self, image):
-        if type(image) == str:
+        if isinstance(image, str):
             return Image.open(image)
         elif type(image) in [bytes, _io.BufferedReader, _io.BytesIO]:
             return Image.open(image)
@@ -108,7 +109,7 @@ class hashing:
         and left_hash only accept list type
         the last one was the closest
         """
-        if right_hash == None:
+        if right_hash is None:
             right_hash = self.phash()
 
         tmp_list = []
@@ -116,7 +117,7 @@ class hashing:
             judge = False
             calculator = sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(
                 str(_), str(right_hash))))
-            result = (16-calculator)*6.25
+            result = (16 - calculator) * 6.25
             if int(result) >= tolerance:
                 judge = True
             # tmp_list.append()

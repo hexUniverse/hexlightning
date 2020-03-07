@@ -1,6 +1,4 @@
 import re
-import telegram
-from telegram.ext import run_async
 
 
 class name_bot:
@@ -11,7 +9,7 @@ class name_bot:
         '''
         information bot|dexinfo bot|announcement bot
 
-        return: 
+        return:
             tuple (True, 'Coin_Dex_Spam', [result])
         '''
         pattern = '(bot)'

@@ -1,22 +1,16 @@
-import os
 import sys
 import time
 import logging
-import asyncio
 import argparse
 
 import pymongo
 from pymongo.errors import ConnectionFailure
-from termcolor import *
-from pprint import pprint as pp
+from termcolor import colored
 from configparser import ConfigParser
 
-from telegram import user
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Custom
 import handle
-import platform
 from plugin import emojitags
 
 
@@ -64,7 +58,6 @@ class app:
             print('\nExit;')
         except ConnectionFailure:
             self.logger.critical('DB DOWN...!!')
-            # sys.exit()
         else:
             self.logger.info('Listening...')
         finally:
@@ -72,26 +65,25 @@ class app:
                 inherit=self,
                 token=self.config.get('bot', 'token'),
             )
-        # self.logger.info('\nExit.')ˋ
 
 
 ansciiArtHex = '''
 ██╗  ██╗███████╗██╗  ██╗⚡️
 ██║  ██║██╔════╝╚██╗██╔╝
-███████║█████╗   ╚███╔╝ 
-██╔══██║██╔══╝   ██╔██╗ 
+███████║█████╗   ╚███╔╝
+██╔══██║██╔══╝   ██╔██╗
 ██║  ██║███████╗██╔╝ ██╗
 ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-                        
+
 '''
 ansciiArtName = '''
-██╗     ██╗ ██████╗ ██╗  ██╗████████╗███╗   ██╗██╗███╗   ██╗ ██████╗ 
-██║     ██║██╔════╝ ██║  ██║╚══██╔══╝████╗  ██║██║████╗  ██║██╔════╝ 
+██╗     ██╗ ██████╗ ██╗  ██╗████████╗███╗   ██╗██╗███╗   ██╗ ██████╗
+██║     ██║██╔════╝ ██║  ██║╚══██╔══╝████╗  ██║██║████╗  ██║██╔════╝
 ██║     ██║██║  ███╗███████║   ██║   ██╔██╗ ██║██║██╔██╗ ██║██║  ███╗
 ██║     ██║██║   ██║██╔══██║   ██║   ██║╚██╗██║██║██║╚██╗██║██║   ██║
 ███████╗██║╚██████╔╝██║  ██║   ██║   ██║ ╚████║██║██║ ╚████║╚██████╔╝
-╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝ 
-                                                                     
+╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+
 '''
 
 print(colored(ansciiArtHex, 'cyan'), colored(ansciiArtName, 'yellow'))

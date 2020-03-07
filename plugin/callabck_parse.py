@@ -1,7 +1,3 @@
-
-#qtype, qact, qdata = query.data.split()
-
-
 class callback_parse:
     def __init__(self, data):
         self.qtype = None

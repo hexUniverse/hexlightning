@@ -1,10 +1,8 @@
 import logging
 import coloredlogs
-#import pysnooper
-from datetime import datetime, timedelta
+from datetime import datetime
 from dateutil import tz
 
-from telegram.ext.dispatcher import run_async
 from plugin import db_parse, db_tools, sage
 
 taiwan_country = tz.gettz('Asia/Taipei')
@@ -12,7 +10,6 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
 
 
-# @run_async
 def gatejieitai(bot, update, specfic=False):
     # compare from_user and chat.id and tags if banned in group
     # return True if need action
@@ -25,7 +22,6 @@ def gatejieitai(bot, update, specfic=False):
     # check cache
     query_redis = redis.lrange('ban_cache', 0, -1)
     query_white = redis.lrange('white_cache', 0, -1)
-    # logger.info(specfic)
     if specfic:
         specfic_chat, specfic_id = specfic
     else:
@@ -50,9 +46,9 @@ def gatejieitai(bot, update, specfic=False):
         group_query = mongo.group.find_one({'chat.id': specfic_chat})
         user.parse(user_query)
         group.parse(group_query)
-        if user.current == None:
+        if user.current is None:
             return False
-        if group_query == None:
+        if group_query is None:
             return False
         date = datetime.fromtimestamp(
             user.current.until).astimezone(taiwan_country)
@@ -62,8 +58,8 @@ def gatejieitai(bot, update, specfic=False):
             # kick yout ass
             if group.config.sub_ban_list:
                 # 比較兩者
-                check = bool(
-                    set(group.config.sub_ban_list).intersection(user.current.tags_list))
+                check = bool(set(group.config.sub_ban_list).intersection(
+                    user.current.tags_list))
                 if check:
                     return user
             else:
@@ -72,13 +68,10 @@ def gatejieitai(bot, update, specfic=False):
         else:
             # bang for ever
             if date.year == 1970:
-                # logger.info(date)
-                # logger.info(group_query)
                 if group.config and group.config.sub_ban_list:
-                    check = bool(
-                        set(group.config.sub_ban_list).intersection(user.current.tags_list))
+                    check = bool(set(group.config.sub_ban_list).intersection(
+                        user.current.tags_list))
                     if check:
-                        #logger.info(f'user {check}')
                         return user
             # punishiment finished
             if user.current.until - now.timestamp() <= 0 and user.current.until != 0:

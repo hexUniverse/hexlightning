@@ -14,5 +14,4 @@ from .homicide import homicide
 from .banyourwords import banyourwords
 from .is_participate_white import is_participate_white
 from .nsfw_detect import nsfw_detect
-#from .imagehash import hashing
 from .spam_name.checker import checker

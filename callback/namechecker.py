@@ -2,9 +2,8 @@ import logging
 import coloredlogs
 from html import escape
 
-import telegram
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import *
+from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext.dispatcher import run_async
 
 from plugin import config, callabck_parse
@@ -36,10 +35,6 @@ def namechecker(bot, update):
     else:
         edit_msg = query.message.caption_html
 
-    # if len(query.data.split()) < 3:
-    #    qtype = query.data
-    # else:
-    #    qtype, qact, qdata = query.data.split()
     if callback.qtype == 'user':
         target_chat_id, *targets = callback.qdata.split(':')
         if callback.qact == 'bypass':
@@ -78,7 +73,6 @@ def namechecker(bot, update):
                                 edit_msg += '\n' + e.message
                                 if e.message == 'Have no rights to send a message':
                                     pass
-                            # bot.leave_chat(target_chat_id)
                             callback_data = None
                         elif e.message == 'Forbidden: bot is not a member of the supergroup chat':
                             query.answer('bot 並不在該群。', show_alert=True)
@@ -86,7 +80,11 @@ def namechecker(bot, update):
                         else:
                             query.answer('發生了一些錯誤，一群訓練有素的猴子們正在圍觀。')
                             bot.send_message(
-                                config.getint('log', 'error'), f'<code>{escape(e.message)}</code>', parse_mode='html')
+                                config.getint(
+                                    'log',
+                                    'error'),
+                                f'<code>{escape(e.message)}</code>',
+                                parse_mode='html')
 
                 if callback_data is None:
                     keyboard = None
@@ -106,10 +104,12 @@ def namechecker(bot, update):
                             if e.message == 'Not enough rights to restrict/unrestrict chat member':
                                 query.answer('沒有力量去對那個人上下其手。')
                                 return
-                callback_data = [f'user bypass {target_chat_id}:+{targets[0][1:]}:-{targets[1][1:]}',
-                                 f'user bypass {target_chat_id}:-{targets[0][1:]}:+{targets[1][1:]}',
-                                 f'user bypass {target_chat_id}:+{targets[0][1:]}:+{targets[1][1:]}',
-                                 f'user bypass {target_chat_id}:-{targets[0][1:]}:-{targets[1][1:]}', ]
+                callback_data = [
+                    f'user bypass {target_chat_id}:+{targets[0][1:]}:-{targets[1][1:]}',
+                    f'user bypass {target_chat_id}:-{targets[0][1:]}:+{targets[1][1:]}',
+                    f'user bypass {target_chat_id}:+{targets[0][1:]}:+{targets[1][1:]}',
+                    f'user bypass {target_chat_id}:-{targets[0][1:]}:-{targets[1][1:]}',
+                ]
                 keyboard = [
                     [InlineKeyboardButton("掐死被邀人", callback_data=callback_data[0]),  # kick from_user group
                         InlineKeyboardButton("掐死邀請人", callback_data=callback_data[1])],  # kick new_member group
@@ -120,10 +120,17 @@ def namechecker(bot, update):
                     target_act, target_id = target[:1], target[1:]
                     if target_act == '-':
                         bot.unban_chat_member(target_chat_id, target_id)
-                callback_data = [f'user bypass {target_chat_id}:-{targets[0][1:]}',
-                                 f'user bypass {target_chat_id}:+{targets[0][1:]}']
-                keyboard = [[InlineKeyboardButton('阿拉花瓜', callback_data=callback_data[0]),
-                             InlineKeyboardButton('他還只是個孩子啊', callback_data=callback_data[1])]]
+                callback_data = [
+                    f'user bypass {target_chat_id}:-{targets[0][1:]}',
+                    f'user bypass {target_chat_id}:+{targets[0][1:]}']
+                keyboard = [
+                    [
+                        InlineKeyboardButton(
+                            '阿拉花瓜',
+                            callback_data=callback_data[0]),
+                        InlineKeyboardButton(
+                            '他還只是個孩子啊',
+                            callback_data=callback_data[1])]]
 
     try:
         reply_markup = None if keyboard is None else InlineKeyboardMarkup(

@@ -13,10 +13,10 @@ from telegram.ext import run_async
 from telegram.error import BadRequest
 
 import locales
-from plugin import druation, to_emoji, to_string, config, sage
-from plugin import db_parse, db_tools, excalibur, homicide, in_shield, is_admin, is_participate_white
+from plugin import config, druation, sage, to_emoji
+from plugin import db_parse, db_tools, excalibur, homicide, is_admin, is_participate_white
 
-from event.xtext_filter import *
+from event.xtext_filter import binance
 
 
 logger = logging.getLogger(__name__)
@@ -37,12 +37,11 @@ def extend_links(bot, update, inherit, cmd=None):
     # tinyurl, t.cn, bit.ly
     return False
     locales.i18n(update).loads.install(True)
-    pattern = '(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)(tinyurl\.com|bit\.ly|t\.cn)(\/[a-z0-9]+)'
+    pattern = r'(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)(tinyurl\.com|bit\.ly|t\.cn)(\/[a-z0-9]+)'
     result = re.findall(pattern, unescape(
         update.message.text_html), re.IGNORECASE)
     if len(result) == 0:
         return False
-    #result = []
     extract_result = checker_result()
     extract_result.tags = []
     extract_result.name = ''
@@ -59,7 +58,6 @@ def extend_links(bot, update, inherit, cmd=None):
         ## Do All Checker ##
         for checker in check_list:
             result_ = checker(bot, update, real_url)
-            # result.append(result_)
             if result_.name:
                 extract_result.name += result_.name
                 extract_result.tags.extend(result_.tags)
@@ -103,18 +101,25 @@ def extend_links(bot, update, inherit, cmd=None):
     else:
         until = (datetime.now(taiwan_country) +
                  timedelta(days=day)).timestamp()
-    excalibur(bot, update, update.message.from_user.id, tags,
-              bot.id, until=until, reason=f'hex auto.{extract_result.name}', evidence=evidence)
+    excalibur(
+        bot,
+        update,
+        update.message.from_user.id,
+        tags,
+        bot.id,
+        until=until,
+        reason=f'hex auto.{extract_result.name}',
+        evidence=evidence)
 
     right = False
     try:
         update.message.delete()
-    except:
+    except BaseException:
         right = True
     try:
         bot.restrict_chat_member(
             update.message.chat.id, update.message.from_user.id)
-    except:
+    except BaseException:
         right = True
 
     text = _(

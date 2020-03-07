@@ -1,6 +1,4 @@
 import re
-import telegram
-from telegram.ext import run_async
 
 
 class ad82cc:
@@ -9,10 +7,10 @@ class ad82cc:
 
     def detect(self, full_name):
         '''
-        return: 
+        return:
             tuple (True, 'Coin_Dex_Spam', [result])
         '''
-        pattern = '(ad\d+.cc)'
+        pattern = r'(ad\d+.cc)'
         result = re.findall(pattern, full_name)
         if result:
             return (True, 'porn_ads_ad82.cc', result)

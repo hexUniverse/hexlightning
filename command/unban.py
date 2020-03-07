@@ -3,9 +3,8 @@ import coloredlogs
 
 from parse import search
 
-from telegram.ext.dispatcher import run_async
 
-from plugin import db_parse, db_tools, sage, fresh
+from plugin import db_parse, db_tools, sage
 from locales import i18n
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
@@ -28,12 +27,12 @@ def unban(bot, update):
     reason = search('r={:S}', update.message.text)
     uid = search('u={:d}', update.message.text)
 
-    if uid == None:
+    if uid is None:
         update.message.reply_html(_('缺少 <code>u=</code> 參數'))
         return
     else:
         uid = uid[0]
-    if reason == None:
+    if reason is None:
         update.message.reply_html(_('缺少 <code>r=</code> 參數'))
         return
     else:
@@ -42,13 +41,13 @@ def unban(bot, update):
     mongo = db_tools.use_mongo()
     redis = db_tools.use_redis()
     query_user = mongo.user.find_one({'chat.id': uid})
-    if query_user == None:
+    if query_user is None:
         update.message.reply_html(_('找不到這個人，失蹤了！！'))
         return
 
     user = db_parse.user()
     user.parse(query_user)
-    if user.current == None:
+    if user.current is None:
         update.message.reply_html(_('這人沒有被封鎖過啊'))
         return
 
@@ -58,7 +57,7 @@ def unban(bot, update):
     mongo.user.find_one_and_update({'chat.id': uid}, update_user)
     redis.lrem('ban_cache', uid, 0)
 
-    if user.banned_participate == None or user.banned_participate == []:
+    if user.banned_participate is None or user.banned_participate == []:
         update.message.reply_text('解除封鎖完成。')
         return
 
@@ -66,14 +65,14 @@ def unban(bot, update):
     for ban in user.banned_participate:
         try:
             user_ = bot.get_chat_member(ban, uid)
-        except:
+        except BaseException:
             groups += _('解封失敗\n') + \
                 f'{ban}'
         else:
             if user_.status == 'kicked':
                 try:
                     bot.unban_chat_member(ban, uid)
-                except:
+                except BaseException:
                     groups += _('解封失敗\n') + \
                         f'{ban}'
                 else:
@@ -90,4 +89,4 @@ def unban(bot, update):
                     update_user = {'$pull': {'chat.banned_participate': ban}}
                     mongo.user.find_one_and_update(
                         {'chat.id': uid}, update_user)
-    update.message.reply_html('[解封完成]\n'+groups)
+    update.message.reply_html('[解封完成]\n' + groups)

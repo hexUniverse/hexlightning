@@ -1,5 +1,3 @@
-import pysnooper
-import gettext
 import time
 import logging
 import coloredlogs
@@ -10,8 +8,8 @@ from datetime import datetime, timedelta
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 
-from plugin import db_parse, db_tools, gatejieitai, sage, sticker_judge, excalibur
-from plugin import druation, is_admin, config, homicide
+from plugin import db_parse, db_tools, excalibur, sage, sticker_judge
+from plugin import config, homicide, is_admin
 from plugin.excalibur import announce
 
 from locales import i18n
@@ -34,7 +32,7 @@ def ban_sticker(bot, update):
         chat = update.message.forward_from_chat
     else:
         chat = update.message.from_user
-    if update.message.sticker.set_name == None:
+    if update.message.sticker.set_name is None:
         return
     if sage.in_shield(update.message.from_user.id):
         return
@@ -44,30 +42,26 @@ def ban_sticker(bot, update):
     if group.white_participate:
         if update.message.from_user.id in group.white_participate:
             return
-    if is_admin(bot, update, specfic=(update.message.chat.id, update.message.from_user.id)):
+    if is_admin(
+        bot,
+        update,
+        specfic=(
+            update.message.chat.id,
+            update.message.from_user.id)):
         return
 
     ban = sticker_judge.checker(
         bot, update, update.message.sticker.set_name)
 
     if ban:
-        # query_banned = redis.lrange('ban_cache', 0, -1)
-        # user_id = str(update.message.from_user.id)
-        # if user_id.encode() in query_banned:
-        #    logger.critical('user in banned')
-        #    return
         try:
             evidence = update.message.forward(config.getint('log', 'evidence'))
-        except:
+        except BaseException:
             evidence = 2
 
         if update.message.sticker.set_name:
             query_stiker = mongo.sticker.find_one(
                 {'sticker.set_name': update.message.sticker.set_name})
-        # does not exists anymore :(
-        # else:
-        #    query_stiker = mongo.sticker.find_one(
-        #        {'sticker.id': update.message.sticker.file_id})
         if query_stiker:
             sticker = db_parse.sticker()
             sticker.parse(query_stiker)
@@ -88,14 +82,12 @@ def ban_sticker(bot, update):
             logger.debug(
                 f'sticker compare with group sub is {check}, should ban')
 
-            # query_user = mongo.user.find_one('chat.id': update.message.from_user.id)
-
-            if check != True:
+            if not check:
                 return
             if until == 0:
                 pass
             '''
-            當 A 子在別的地方得到 mark as spam (ads), 在 B 群沒有訂閱 (ads) 而有訂閱 porn, 
+            當 A 子在別的地方得到 mark as spam (ads), 在 B 群沒有訂閱 (ads) 而有訂閱 porn,
             而 A 在貼了 mark as porn 的貼圖。
             A 子會被踢出去，並且記錄在 banned_participate, 但不更新 ban.current
             '''
@@ -108,16 +100,35 @@ def ban_sticker(bot, update):
                 else:
                     evidence_ = evidence.message_id
 
-                excalibur(bot, update, update.message.from_user.id, sticker.tags,
-                          sticker.opid, until=until, reason=sticker.reason, evidence=evidence_, user=update.message.from_user)
-                announce_ban = _(announce(update.message.from_user.id, sticker.tags,
-                                          sticker.opid, until=until, reason=sticker.reason, evidence=evidence_, query_user=update.message.from_user))
+                excalibur(
+                    bot,
+                    update,
+                    update.message.from_user.id,
+                    sticker.tags,
+                    sticker.opid,
+                    until=until,
+                    reason=sticker.reason,
+                    evidence=evidence_,
+                    user=update.message.from_user)
+                announce_ban = _(
+                    announce(
+                        update.message.from_user.id,
+                        sticker.tags,
+                        sticker.opid,
+                        until=until,
+                        reason=sticker.reason,
+                        evidence=evidence_,
+                        query_user=update.message.from_user))
             else:
-                announce_ban = _('名字：{fullname}\n'
-                                 '傳送了 <code>{sticker}</code> 已被標記為 <code>{tags}</code> 的貼圖。').format(fullname=user.mention_html, sticker=sticker.set_name, tags=sticker.tags_text)
+                announce_ban = _(
+                    '名字：{fullname}\n'
+                    '傳送了 <code>{sticker}</code> 已被標記為 <code>{tags}</code> 的貼圖。').format(
+                    fullname=user.mention_html,
+                    sticker=sticker.set_name,
+                    tags=sticker.tags_text)
             try:
                 update.message.delete()
-            except:
+            except BaseException:
                 pass
             try:
                 bot.restrict_chat_member(
@@ -136,24 +147,10 @@ def ban_sticker(bot, update):
             time.sleep(10)
             try:
                 sent.delete()
-            except:
+            except BaseException:
                 pass
 
             homicide(bot, update, update.message.from_user.id)
-            # try:
-            #    bot.kick_chat_member(update.message.chat.id,
-            #                         update.message.from_user.id)
-            # except:
-            #    pass
-            # else:
-            #    update_user = {
-            #        '$addToSet': {
-            #            'chat.banned_participate': update.message.chat.id},
-            #        '$pull': {'chat.participate': update.message.chat.id}
-            #    }
-
-            #    mongo.user.find_one_and_update(
-            #        {'chat.id': update.message.from_user.id}, update_user)
 
 
 '''

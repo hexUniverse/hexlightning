@@ -3,14 +3,11 @@ import coloredlogs
 from datetime import datetime, timedelta
 from dateutil import tz
 
-import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext.dispatcher import run_async
 
 from locales import i18n
-from plugin import config, callabck_parse, emojitags, to_emoji, excalibur, druation
-from plugin import db_parse, db_tools, sage
-from inlinekeyboard import generate
+from plugin import callabck_parse, config, druation, excalibur
+from plugin import sage
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
@@ -25,7 +22,9 @@ def quickban(bot, update):
     user_id, msg_id = callback.qact.split(':')
     tags = callback.qdata
 
-    if sage.michael(query.from_user.id) == False and sage.lucifer(query.from_user.id) == False:
+    if sage.michael(
+            query.from_user.id) == False and sage.lucifer(
+            query.from_user.id) == False:
         query.answer('權限不夠。')
         return
     if sage.in_shield(int(user_id)):
@@ -33,10 +32,8 @@ def quickban(bot, update):
         query.edit_message_text(text, parse_mode='html')
         return
     try:
-        # sent = bot.forward_message(config.getint(
-        #    'log', 'evidence'), config.getint('admin', 'elf'), int(msg_id))
         sent = update.message.forward(config.getint('log', 'evidence'))
-    except:
+    except BaseException:
         sent = 2
 
     days = druation([tags])

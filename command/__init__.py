@@ -16,7 +16,6 @@ from .add_white import add_white
 from .del_white import del_white
 from .unban import unban
 from .pregnant import pregnant, marry
-#from .godtime import godtime
 from .abuser import abuser
 from .unban_sticker import unban_sticker
 from .image import image

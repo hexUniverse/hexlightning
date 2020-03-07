@@ -1,11 +1,8 @@
 import time
-import json
 from html import escape
 from telegram.ext.dispatcher import run_async
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-from plugin import db_parse, db_tools, sage, is_admin
-from plugin import to_string, to_list, to_emoji, emojitags
+from plugin import db_tools, is_admin, sage
 from locales import i18n
 from inlinekeyboard import generate
 
@@ -16,11 +13,13 @@ def groupconfig(bot, update):
     mongo = db_tools.use_mongo()
     try:
         update.message.delete()
-    except:
+    except BaseException:
         pass
     users = bot.get_chat_member(
         update.message.chat.id, update.message.from_user.id)
-    if is_admin(bot, update) == False or sage.lucifer(update.message.chat.id) == False:
+    if is_admin(
+            bot, update) == False or sage.lucifer(
+            update.message.chat.id) == False:
         text = _('你不是管理員好嗎，請不要亂打擾我。')
         sent = update.message.reply_text(text).result()
         time.sleep(5)

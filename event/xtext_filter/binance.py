@@ -1,11 +1,4 @@
 import requests
-from telegram.ext.dispatcher import run_async
-
-from plugin import db_parse, db_tools
-# from  import checker_result
-# import event.xtext_filter
-# from event.xtext_filter.extend_links import checker_result
-# a = event.xtext_filter.extend_links.checker_result
 
 
 class checker_result:
@@ -21,13 +14,8 @@ def get_cookie(text):
         return result.text
 
 
-# @run_async
 def binance(bot, update, url):
-    # mongo = db_tools.use_mongo()
     r = requests.get(url)
-    # if r.status_code not in [301, 302, 200]:
-    #    print(r.status_code)
-    #    return checker_result()
     get_ = get_cookie(r.text)
     if get_:
         cookies = get_.split('=')
