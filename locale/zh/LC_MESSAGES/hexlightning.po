@@ -2,31 +2,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-01-23 15:17+0800\n"
-"PO-Revision-Date: 2020-04-25 17:44\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: shotalang\n"
-"Language: zh\n"
+"POT-Creation-Date: 2020-05-09 20:55+0800\n"
+"PO-Revision-Date: 2020-05-09 13:06\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: hexlightning\n"
-"X-Crowdin-Language: shota\n"
+"X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 
-#: tests/test_i18n.py:12
-msgid "嗨"
-msgstr ""
-
-#: hexlightning/plugins/about.py:21
-msgid "本Bot隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
-"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
-"使用本Bot視同同意<code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+#: hexlightning/reception/about.py:13
+msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu   \n\n"
+"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
 "主要開發人員：\n"
-"@hexlightning @Shawn_N @smailzhu\n"
+"@hexlightning @Shawn_N\n"
 "主要嘴砲人員：@bestpika\n"
 "看板虎(娘)：@allen0099\n"
-"人工智障奶子偵測器：@toy17 @NekoNymphJapari"
+msgstr ""
+
+#: hexlightning/reception/start.py:6
+msgid "Hi！我是 hexlightning 以下是我的常用指令\n"
+"[群組管理員]\n"
+"!bang - 回覆時使用，將該訊息刪除以及剔除該名成員，並且自動回報給團隊。\n"
+"!hex config - 在群組內發送查看黑名單訂閱狀況。\n\n"
+"[一般成員]\n"
+"/report /spam @admin !admin - 回覆時使用，將訊息回報給團隊。\n"
+"/banstat <uid> - 可回覆時使用，也可單獨用，查看有無被標記黑名單。\n"
+"/ping - pong，檢察網路狀況。\n"
+"/eula - 僅私訊時可用，查看 hex 使用者條款。\n"
+"/user - 回覆時使用，查看使用者 ID\n"
+"/help - 你知道你正在看嗎？\n"
+msgstr ""
+
+#: hexlightning/reception/ping.py:12
+msgid "pong"
+msgstr ""
+
+#: hexlightning/reception/ping.py:12
+msgid "崩！"
+msgstr ""
+
+#: hexlightning/reception/ping.py:12
+msgid "卡翹！"
+msgstr ""
+
+#: hexlightning/reception/ping.py:12
+msgid "我誰"
 msgstr ""
 
