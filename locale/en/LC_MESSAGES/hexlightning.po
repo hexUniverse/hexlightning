@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
 "POT-Creation-Date: 2020-01-23 15:17+0800\n"
-"PO-Revision-Date: 2020-01-30 07:24\n"
+"PO-Revision-Date: 2020-05-09 08:24\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: tests/test_i18n.py:12
 msgid "嗨"
-msgstr ""
+msgstr "Hey there,"
 
 #: hexlightning/plugins/about.py:21
 msgid "本Bot隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
