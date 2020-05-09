@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
 "POT-Creation-Date: 2020-05-09 15:02+0000\n"
-"PO-Revision-Date: 2020-05-09 15:04\n"
+"PO-Revision-Date: 2020-05-09 15:54\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -53,5 +53,5 @@ msgstr "Kachow!"
 
 #: hexlightning/reception/ping.py:12
 msgid "我誰"
-msgstr ""
+msgstr "SAY MY NAME"
 
