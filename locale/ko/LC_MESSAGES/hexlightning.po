@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
 "POT-Creation-Date: 2020-05-09 17:58+0000\n"
-"PO-Revision-Date: 2020-05-09 18:04\n"
+"PO-Revision-Date: 2020-05-11 09:27\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -41,17 +41,17 @@ msgstr ""
 
 #: hexlightning/reception/ping.py:12
 msgid "pong"
-msgstr ""
+msgstr "pong"
 
 #: hexlightning/reception/ping.py:12
 msgid "崩！"
-msgstr ""
+msgstr "퐁!"
 
 #: hexlightning/reception/ping.py:12
 msgid "卡翹！"
-msgstr ""
+msgstr "카치아오!"
 
 #: hexlightning/reception/ping.py:12
 msgid "我誰"
-msgstr ""
+msgstr "난 누구야"
 
