@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-05-30 06:47+0000\n"
-"PO-Revision-Date: 2020-05-30 06:55\n"
+"POT-Creation-Date: 2020-05-30 18:07+0000\n"
+"PO-Revision-Date: 2020-05-30 18:14\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -15,8 +15,54 @@ msgstr ""
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 
-#: hexlightning/functions/chat_update_func.py:83
-msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人禍群組擁有者發送此指令。"
+#: hexlightning/functions/utils/human_readable_time.py:20
+#: hexlightning/functions/utils/human_readable_time.py:24
+#, python-format
+msgid " %d天"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:26
+#: hexlightning/functions/utils/human_readable_time.py:34
+#: hexlightning/functions/utils/human_readable_time.py:36
+#: hexlightning/functions/utils/human_readable_time.py:38
+#, python-format
+msgid " %d小時"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:40
+#: hexlightning/functions/utils/human_readable_time.py:45
+#: hexlightning/functions/utils/human_readable_time.py:52
+#, python-format
+msgid " %d分"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:47
+#: hexlightning/functions/utils/human_readable_time.py:50
+#, python-format
+msgid " %d秒"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:53
+#, python-format
+msgid " %d分 %d秒"
+msgstr ""
+
+#: hexlightning/functions/chat_update_func.py:75
+#: hexlightning/functions/chat_update_func.py:107
+msgid "已更新"
+msgstr ""
+
+#: hexlightning/functions/chat_update_func.py:79
+msgid "新增資料發生錯誤，請在群組內回報。"
+msgstr ""
+
+#: hexlightning/functions/chat_update_func.py:84
+msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
+msgstr ""
+
+#: hexlightning/functions/chat_update_func.py:97
+#, python-brace-format
+msgid "請等待<code>{transform}</code> 後再使用此指令。"
 msgstr ""
 
 #: hexlightning/reception/ping.py:12
