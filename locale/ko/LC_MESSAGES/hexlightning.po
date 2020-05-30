@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-05-09 17:58+0000\n"
-"PO-Revision-Date: 2020-05-11 10:00\n"
+"POT-Creation-Date: 2020-05-30 06:47+0000\n"
+"PO-Revision-Date: 2020-05-30 06:55\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -14,6 +14,26 @@ msgstr ""
 "X-Crowdin-Project: hexlightning\n"
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
+
+#: hexlightning/functions/chat_update_func.py:83
+msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人禍群組擁有者發送此指令。"
+msgstr ""
+
+#: hexlightning/reception/ping.py:12
+msgid "pong"
+msgstr "pong"
+
+#: hexlightning/reception/ping.py:12
+msgid "崩！"
+msgstr "퐁!"
+
+#: hexlightning/reception/ping.py:12
+msgid "卡翹！"
+msgstr "카치아오!"
+
+#: hexlightning/reception/ping.py:12
+msgid "我誰"
+msgstr "난 누구야"
 
 #: hexlightning/reception/about.py:12
 msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
@@ -54,20 +74,4 @@ msgstr "하이! 나는 헥스라이트닝이라고, 다음은 내 유용한 명�
 "/eula - 봇으로 명령을 보낼 때, 서비스 및 사용자 약관 표시하기.\n"
 "/user - 답장할 때, 그 사용자의 ID 표시하기.\n"
 "/help - 당신은 지금 읽은 메시지.\n"
-
-#: hexlightning/reception/ping.py:12
-msgid "pong"
-msgstr "pong"
-
-#: hexlightning/reception/ping.py:12
-msgid "崩！"
-msgstr "퐁!"
-
-#: hexlightning/reception/ping.py:12
-msgid "卡翹！"
-msgstr "카치아오!"
-
-#: hexlightning/reception/ping.py:12
-msgid "我誰"
-msgstr "난 누구야"
 
