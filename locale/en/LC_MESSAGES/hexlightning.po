@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-05-31 10:10+0000\n"
-"PO-Revision-Date: 2020-05-31 10:25\n"
+"POT-Creation-Date: 2020-08-25 14:02+0000\n"
+"PO-Revision-Date: 2020-08-25 14:15\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -12,8 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: hexlightning\n"
+"X-Crowdin-Project-ID: 362215\n"
 "X-Crowdin-Language: en\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
+"X-Crowdin-File-ID: 503\n"
 
 #: hexlightning/functions/utils/human_readable_time.py:20
 #: hexlightning/functions/utils/human_readable_time.py:24
@@ -65,22 +67,6 @@ msgstr ""
 msgid "請等待<code>{transform}</code> 後再使用此指令。"
 msgstr ""
 
-#: hexlightning/reception/ping.py:12
-msgid "pong"
-msgstr "pong"
-
-#: hexlightning/reception/ping.py:12
-msgid "崩！"
-msgstr "pong!"
-
-#: hexlightning/reception/ping.py:12
-msgid "卡翹！"
-msgstr "Kachow!"
-
-#: hexlightning/reception/ping.py:12
-msgid "我誰"
-msgstr "SAY MY NAME"
-
 #: hexlightning/reception/about.py:12
 msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
 "並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
@@ -110,4 +96,20 @@ msgid "Hi！我是 hexlightning 以下是我的常用指令\n"
 "/user - 回覆時使用，查看使用者 ID\n"
 "/help - 你知道你正在看嗎？\n"
 msgstr ""
+
+#: hexlightning/reception/ping.py:12
+msgid "pong"
+msgstr "pong"
+
+#: hexlightning/reception/ping.py:12
+msgid "崩！"
+msgstr "pong!"
+
+#: hexlightning/reception/ping.py:12
+msgid "卡翹！"
+msgstr "Kachow!"
+
+#: hexlightning/reception/ping.py:12
+msgid "我誰"
+msgstr "SAY MY NAME"
 
