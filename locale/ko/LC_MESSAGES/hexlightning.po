@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-08-25 14:02+0000\n"
-"PO-Revision-Date: 2020-08-25 14:15\n"
+"POT-Creation-Date: 2020-08-29 19:08+0000\n"
+"PO-Revision-Date: 2020-08-29 19:15\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -49,41 +49,25 @@ msgstr ""
 msgid " %d分 %d秒"
 msgstr ""
 
-#: hexlightning/functions/chat_update_func.py:75
-#: hexlightning/functions/chat_update_func.py:107
+#: hexlightning/functions/chat_update_func.py:76
+#: hexlightning/functions/chat_update_func.py:108
 msgid "已更新"
 msgstr ""
 
-#: hexlightning/functions/chat_update_func.py:79
+#: hexlightning/functions/chat_update_func.py:80
 msgid "新增資料發生錯誤，請在群組內回報。"
 msgstr ""
 
-#: hexlightning/functions/chat_update_func.py:84
+#: hexlightning/functions/chat_update_func.py:85
 msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
 msgstr ""
 
-#: hexlightning/functions/chat_update_func.py:97
+#: hexlightning/functions/chat_update_func.py:98
 #, python-brace-format
 msgid "請等待<code>{transform}</code> 後再使用此指令。"
 msgstr ""
 
-#: hexlightning/reception/about.py:12
-msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
-"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
-"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
-"主要開發人員：\n"
-"@hexlightning @Shawn_N\n"
-"主要嘴砲人員：@bestpika\n"
-"看板虎(娘)：@allen0099\n"
-msgstr "이 봇은 <a href=\"https://t.me/hexuniverse\">hex</a> 생산물입니다\n"
-"많은 정령들은 함께 유지합니다, 우리를 후원하고 싶다면, @orangetofu 에서 연락하세요 \n\n"
-"이 봇을 사용한다면 우리 <code>헥스 협의</code>를 동의됩니다 (/eula 에서 읽어보세요)\n"
-"주요 개발자:\n"
-"@hexlightning @Shawn_N\n"
-"도발 전업인: @bestpika\n"
-"크로스 드레서 호랑이: @allen0099\n"
-
-#: hexlightning/reception/start.py:12
+#: hexlightning/reception_old/start.py:14
 msgid "Hi！我是 hexlightning 以下是我的常用指令\n"
 "[群組管理員]\n"
 "!bang - 回覆時使用，將該訊息刪除以及剔除該名成員，並且自動回報給團隊。\n"
@@ -107,19 +91,39 @@ msgstr "하이! 나는 헥스라이트닝이라고, 다음은 내 유용한 명�
 "/user - 답장할 때, 그 사용자의 ID 표시하기.\n"
 "/help - 당신은 지금 읽은 메시지.\n"
 
-#: hexlightning/reception/ping.py:12
+#: hexlightning/reception_old/ping.py:14
+#: hexlightning/plugins/ping/reception/reception.py:14
 msgid "pong"
 msgstr "pong"
 
-#: hexlightning/reception/ping.py:12
+#: hexlightning/reception_old/ping.py:14
+#: hexlightning/plugins/ping/reception/reception.py:14
 msgid "崩！"
 msgstr "퐁!"
 
-#: hexlightning/reception/ping.py:12
+#: hexlightning/reception_old/ping.py:14
+#: hexlightning/plugins/ping/reception/reception.py:14
 msgid "卡翹！"
 msgstr "카치아오!"
 
-#: hexlightning/reception/ping.py:12
+#: hexlightning/reception_old/ping.py:14
+#: hexlightning/plugins/ping/reception/reception.py:14
 msgid "我誰"
 msgstr "난 누구야"
+
+#: hexlightning/plugins/about/reception/reception.py:18
+msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
+"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N\n"
+"主要嘴砲人員：@bestpika\n"
+"看板虎(娘)：@allen0099\n"
+msgstr "이 봇은 <a href=\"https://t.me/hexuniverse\">hex</a> 생산물입니다\n"
+"많은 정령들은 함께 유지합니다, 우리를 후원하고 싶다면, @orangetofu 에서 연락하세요 \n\n"
+"이 봇을 사용한다면 우리 <code>헥스 협의</code>를 동의됩니다 (/eula 에서 읽어보세요)\n"
+"주요 개발자:\n"
+"@hexlightning @Shawn_N\n"
+"도발 전업인: @bestpika\n"
+"크로스 드레서 호랑이: @allen0099\n"
 
