@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-10-03 17:58+0000\n"
-"PO-Revision-Date: 2020-10-03 18:15\n"
+"POT-Creation-Date: 2020-10-03 18:36+0000\n"
+"PO-Revision-Date: 2020-10-03 18:45\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -18,22 +18,18 @@ msgstr ""
 "X-Crowdin-File-ID: 503\n"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "pong"
 msgstr "pong"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "崩！"
 msgstr "퐁!"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "卡翹！"
 msgstr "카치아오!"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "我誰"
 msgstr "난 누구야"
 
@@ -52,30 +48,6 @@ msgstr "이 봇은 <a href=\"https://t.me/hexuniverse\">hex</a> 생산물입니�
 "@hexlightning @Shawn_N\n"
 "도발 전업인: @bestpika\n"
 "크로스 드레서 호랑이: @allen0099\n"
-
-#: hexlightning/reception_old/start.py:14
-msgid "Hi！我是 hexlightning 以下是我的常用指令\n"
-"[群組管理員]\n"
-"!bang - 回覆時使用，將該訊息刪除以及剔除該名成員，並且自動回報給團隊。\n"
-"!hex config - 在群組內發送查看黑名單訂閱狀況。\n\n"
-"[一般成員]\n"
-"/report /spam @admin !admin - 回覆時使用，將訊息回報給團隊。\n"
-"/banstat <uid> - 可回覆時使用，也可單獨用，查看有無被標記黑名單。\n"
-"/ping - pong，檢察網路狀況。\n"
-"/eula - 僅私訊時可用，查看 hex 使用者條款。\n"
-"/user - 回覆時使用，查看使用者 ID\n"
-"/help - 你知道你正在看嗎？\n"
-msgstr "하이! 나는 헥스라이트닝이라고, 다음은 내 유용한 명령입니다.\n"
-"[그룹 관리자]\n"
-"!bang - 답장할 때, 그 메시지 삭제하고 그 멤버를 추방하기.\n"
-"!hex config - 그룹에서 구독된 블랙리스트를 표시하기.\n\n"
-"[일반 멤버]\n"
-"/report /spam @admin !admin - 답장할 때, 그 메시지를 우리 팀에서 신고하기.\n"
-"/banstat <uid> - 답장 또는 메시지로 보낼 후에 그 멤버/자신의 블랙크리스트의 상태 표시하기.\n"
-"/ping - pong, 인터넷 상태 검사.\n"
-"/eula - 봇으로 명령을 보낼 때, 서비스 및 사용자 약관 표시하기.\n"
-"/user - 답장할 때, 그 사용자의 ID 표시하기.\n"
-"/help - 당신은 지금 읽은 메시지.\n"
 
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
