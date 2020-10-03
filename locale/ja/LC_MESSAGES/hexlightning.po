@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-10-02 18:43+0000\n"
-"PO-Revision-Date: 2020-10-02 18:46\n"
+"POT-Creation-Date: 2020-10-03 17:34+0000\n"
+"PO-Revision-Date: 2020-10-03 17:35\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -17,22 +17,22 @@ msgstr ""
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 "X-Crowdin-File-ID: 503\n"
 
-#: hexlightning/plugins/ping/reception/reception.py:14
+#: hexlightning/plugins/user_command/ping/reception/text.py:14
 #: hexlightning/reception_old/ping.py:14
 msgid "pong"
 msgstr ""
 
-#: hexlightning/plugins/ping/reception/reception.py:14
+#: hexlightning/plugins/user_command/ping/reception/text.py:14
 #: hexlightning/reception_old/ping.py:14
 msgid "崩！"
 msgstr ""
 
-#: hexlightning/plugins/ping/reception/reception.py:14
+#: hexlightning/plugins/user_command/ping/reception/text.py:14
 #: hexlightning/reception_old/ping.py:14
 msgid "卡翹！"
 msgstr ""
 
-#: hexlightning/plugins/ping/reception/reception.py:14
+#: hexlightning/plugins/user_command/ping/reception/text.py:14
 #: hexlightning/reception_old/ping.py:14
 msgid "我誰"
 msgstr ""
