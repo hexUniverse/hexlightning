@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-10-03 17:58+0000\n"
-"PO-Revision-Date: 2020-10-03 18:15\n"
+"POT-Creation-Date: 2020-10-03 18:36+0000\n"
+"PO-Revision-Date: 2020-10-03 18:45\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Chuni\n"
 "Language: cu_i\n"
@@ -18,22 +18,18 @@ msgstr ""
 "X-Crowdin-File-ID: 503\n"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "pong"
 msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "崩！"
 msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "卡翹！"
 msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
-#: hexlightning/reception_old/ping.py:14
 msgid "我誰"
 msgstr ""
 
@@ -45,20 +41,6 @@ msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
 "@hexlightning @Shawn_N\n"
 "主要嘴砲人員：@bestpika\n"
 "看板虎(娘)：@allen0099\n"
-msgstr ""
-
-#: hexlightning/reception_old/start.py:14
-msgid "Hi！我是 hexlightning 以下是我的常用指令\n"
-"[群組管理員]\n"
-"!bang - 回覆時使用，將該訊息刪除以及剔除該名成員，並且自動回報給團隊。\n"
-"!hex config - 在群組內發送查看黑名單訂閱狀況。\n\n"
-"[一般成員]\n"
-"/report /spam @admin !admin - 回覆時使用，將訊息回報給團隊。\n"
-"/banstat <uid> - 可回覆時使用，也可單獨用，查看有無被標記黑名單。\n"
-"/ping - pong，檢察網路狀況。\n"
-"/eula - 僅私訊時可用，查看 hex 使用者條款。\n"
-"/user - 回覆時使用，查看使用者 ID\n"
-"/help - 你知道你正在看嗎？\n"
 msgstr ""
 
 #: hexlightning/functions/utils/chat_update_func.py:76
