@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
 "POT-Creation-Date: 2020-10-03 18:36+0000\n"
-"PO-Revision-Date: 2020-10-03 18:45\n"
+"PO-Revision-Date: 2020-10-31 07:56\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -31,7 +31,7 @@ msgstr "Kachow!"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "我誰"
-msgstr "SAY MY NAME"
+msgstr "I'm who"
 
 #: hexlightning/plugins/user_command/about/reception/text.py:18
 msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
@@ -52,7 +52,7 @@ msgstr "This bot belong to <a href=\"https://t.me/hexuniverse\">hex</a>\n"
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
 msgid "已更新"
-msgstr ""
+msgstr "Updated"
 
 #: hexlightning/functions/utils/chat_update_func.py:80
 msgid "新增資料發生錯誤，請在群組內回報。"
