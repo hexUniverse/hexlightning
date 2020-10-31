@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2020-10-03 18:36+0000\n"
-"PO-Revision-Date: 2020-10-03 18:45\n"
+"POT-Creation-Date: 2020-10-31 18:06+0000\n"
+"PO-Revision-Date: 2020-10-31 18:06\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -16,32 +16,6 @@ msgstr ""
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 "X-Crowdin-File-ID: 503\n"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:18
-msgid "pong"
-msgstr ""
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:18
-msgid "崩！"
-msgstr ""
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:18
-msgid "卡翹！"
-msgstr ""
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:18
-msgid "我誰"
-msgstr ""
-
-#: hexlightning/plugins/user_command/about/reception/text.py:18
-msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
-"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
-"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
-"主要開發人員：\n"
-"@hexlightning @Shawn_N\n"
-"主要嘴砲人員：@bestpika\n"
-"看板虎(娘)：@allen0099\n"
-msgstr ""
 
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
@@ -91,5 +65,31 @@ msgstr ""
 #: hexlightning/functions/utils/human_readable_time.py:53
 #, python-format
 msgid " %d分 %d秒"
+msgstr ""
+
+#: hexlightning/plugins/user_command/about/reception/text.py:18
+msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
+"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N\n"
+"主要嘴砲人員：@bestpika\n"
+"看板虎(娘)：@allen0099\n"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "pong"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "崩！"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "卡翹！"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "我誰"
 msgstr ""
 
