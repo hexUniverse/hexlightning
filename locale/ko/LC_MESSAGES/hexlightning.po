@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
 "POT-Creation-Date: 2020-10-31 18:06+0000\n"
-"PO-Revision-Date: 2020-10-31 18:06\n"
+"PO-Revision-Date: 2020-11-14 20:36\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -20,11 +20,11 @@ msgstr ""
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
 msgid "已更新"
-msgstr ""
+msgstr "업데이트 됨"
 
 #: hexlightning/functions/utils/chat_update_func.py:80
 msgid "新增資料發生錯誤，請在群組內回報。"
-msgstr ""
+msgstr "자료를 추가할 때 문제가 발생했습니다, 그룹에서 신고하십시오."
 
 #: hexlightning/functions/utils/chat_update_func.py:85
 msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
@@ -39,7 +39,7 @@ msgstr ""
 #: hexlightning/functions/utils/human_readable_time.py:24
 #, python-format
 msgid " %d天"
-msgstr ""
+msgstr " %d 일"
 
 #: hexlightning/functions/utils/human_readable_time.py:26
 #: hexlightning/functions/utils/human_readable_time.py:34
@@ -47,25 +47,25 @@ msgstr ""
 #: hexlightning/functions/utils/human_readable_time.py:38
 #, python-format
 msgid " %d小時"
-msgstr ""
+msgstr " %d 시간"
 
 #: hexlightning/functions/utils/human_readable_time.py:40
 #: hexlightning/functions/utils/human_readable_time.py:45
 #: hexlightning/functions/utils/human_readable_time.py:52
 #, python-format
 msgid " %d分"
-msgstr ""
+msgstr " %d 분"
 
 #: hexlightning/functions/utils/human_readable_time.py:47
 #: hexlightning/functions/utils/human_readable_time.py:50
 #, python-format
 msgid " %d秒"
-msgstr ""
+msgstr " %d 초"
 
 #: hexlightning/functions/utils/human_readable_time.py:53
 #, python-format
 msgid " %d分 %d秒"
-msgstr ""
+msgstr " %d 분 %d 초"
 
 #: hexlightning/plugins/user_command/about/reception/text.py:18
 msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
