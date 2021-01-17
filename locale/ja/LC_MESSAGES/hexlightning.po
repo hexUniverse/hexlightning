@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-01-03 12:54+0000\n"
-"PO-Revision-Date: 2021-01-03 13:06\n"
+"POT-Creation-Date: 2021-01-17 05:34+0000\n"
+"PO-Revision-Date: 2021-01-17 05:40\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -16,6 +16,24 @@ msgstr ""
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 "X-Crowdin-File-ID: 503\n"
+
+#: hexlightning/functions/utils/chat_update_func.py:76
+#: hexlightning/functions/utils/chat_update_func.py:108
+msgid "已更新"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:80
+msgid "新增資料發生錯誤，請在群組內回報。"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:85
+msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:98
+#, python-brace-format
+msgid "請等待<code>{transform}</code> 後再使用此指令。"
+msgstr ""
 
 #: hexlightning/functions/utils/human_readable_time.py:20
 #: hexlightning/functions/utils/human_readable_time.py:24
@@ -47,24 +65,6 @@ msgstr ""
 #: hexlightning/functions/utils/human_readable_time.py:53
 #, python-format
 msgid " %d分 %d秒"
-msgstr ""
-
-#: hexlightning/functions/utils/chat_update_func.py:76
-#: hexlightning/functions/utils/chat_update_func.py:108
-msgid "已更新"
-msgstr ""
-
-#: hexlightning/functions/utils/chat_update_func.py:80
-msgid "新增資料發生錯誤，請在群組內回報。"
-msgstr ""
-
-#: hexlightning/functions/utils/chat_update_func.py:85
-msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
-msgstr ""
-
-#: hexlightning/functions/utils/chat_update_func.py:98
-#, python-brace-format
-msgid "請等待<code>{transform}</code> 後再使用此指令。"
 msgstr ""
 
 #: hexlightning/plugins/user_command/about/reception/text.py:18
