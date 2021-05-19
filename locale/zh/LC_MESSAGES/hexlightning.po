@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
 "POT-Creation-Date: 2021-01-17 05:34+0000\n"
-"PO-Revision-Date: 2021-05-19 06:19\n"
+"PO-Revision-Date: 2021-05-19 06:30\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -75,21 +75,27 @@ msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
 "@hexlightning @Shawn_N\n"
 "主要嘴砲人員：@bestpika\n"
 "看板虎(娘)：@allen0099\n"
-msgstr ""
+msgstr "本 Bot 隶属于 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"并由多名小精灵共同维护，若有合作需求请洽 @orangetofu \n\n"
+"使用本 Bot 视同同意 <code>海克斯真香协议</code> (详情 /eula 查看)\n"
+"主要开发人员：\n"
+"@hexlightning @Shawn_N\n"
+"主要口炮人员： @bestpika\n"
+"看板虎(娘)：@allen0099\n"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:15
 msgid "pong"
-msgstr ""
+msgstr "pong"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:15
 msgid "崩！"
-msgstr ""
+msgstr "崩！"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:15
 msgid "卡翹！"
-msgstr ""
+msgstr "卡翘！"
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:15
 msgid "我誰"
-msgstr ""
+msgstr "我谁"
 
