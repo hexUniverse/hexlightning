@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-01-17 05:34+0000\n"
-"PO-Revision-Date: 2021-05-19 06:53\n"
+"POT-Creation-Date: 2021-06-19 02:41+0000\n"
+"PO-Revision-Date: 2021-06-19 02:48\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -16,6 +16,38 @@ msgstr ""
 "X-Crowdin-Language: en\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 "X-Crowdin-File-ID: 503\n"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "pong"
+msgstr "pong"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "崩！"
+msgstr "pong!"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "卡翹！"
+msgstr "Kachow!"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "我誰"
+msgstr "I'm who"
+
+#: hexlightning/plugins/user_command/about/reception/text.py:18
+msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
+"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N\n"
+"主要嘴砲人員：@bestpika\n"
+"看板虎(娘)：@allen0099\n"
+msgstr "This bot belong to <a href=\"https://t.me/hexuniverse\">hex</a>\n"
+"maintained by eleves. any collaborate request, please contact @orangetofu\n\n"
+"Yo use this bot you have to agree <code>Hex Fucking Fragrant Agreement</code> (send /eula for details).\n\n"
+"Main Developers:\n"
+"@Shawn_N \n\n"
+"Credits:\n"
+"@bestpika @allen0099\n"
 
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
@@ -66,36 +98,4 @@ msgstr " %d seconds"
 #, python-format
 msgid " %d分 %d秒"
 msgstr " %d minutes %d seconds"
-
-#: hexlightning/plugins/user_command/about/reception/text.py:18
-msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
-"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
-"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
-"主要開發人員：\n"
-"@hexlightning @Shawn_N\n"
-"主要嘴砲人員：@bestpika\n"
-"看板虎(娘)：@allen0099\n"
-msgstr "This bot belong to <a href=\"https://t.me/hexuniverse\">hex</a>\n"
-"maintained by eleves. any collaborate request, please contact @orangetofu\n\n"
-"Yo use this bot you have to agree <code>Hex Fucking Fragrant Agreement</code> (send /eula for details).\n\n"
-"Main Developers:\n"
-"@Shawn_N \n\n"
-"Credits:\n"
-"@bestpika @allen0099\n"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "pong"
-msgstr "pong"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "崩！"
-msgstr "pong!"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "卡翹！"
-msgstr "Kachow!"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "我誰"
-msgstr "I'm who"
 
