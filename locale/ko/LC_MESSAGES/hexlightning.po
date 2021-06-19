@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-01-17 05:34+0000\n"
-"PO-Revision-Date: 2021-01-17 05:40\n"
+"POT-Creation-Date: 2021-06-19 02:41+0000\n"
+"PO-Revision-Date: 2021-06-19 02:48\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -16,6 +16,38 @@ msgstr ""
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 "X-Crowdin-File-ID: 503\n"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "pong"
+msgstr "pong"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "崩！"
+msgstr "펑!"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "卡翹！"
+msgstr "카치아오!"
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:15
+msgid "我誰"
+msgstr "난 누구야"
+
+#: hexlightning/plugins/user_command/about/reception/text.py:18
+msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
+"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N\n"
+"主要嘴砲人員：@bestpika\n"
+"看板虎(娘)：@allen0099\n"
+msgstr "이 봇은 <a href=\"https://t.me/hexuniverse\">hex</a> 생산물입니다\n"
+"많은 정령들은 함께 유지합니다, 우리를 후원하고 싶다면, @orangetofu 에서 연락하세요 \n\n"
+"이 봇을 사용한다면 우리 <code>헥스 협의</code>를 동의됩니다 (/eula 에서 읽어보세요)\n"
+"주요 개발자:\n"
+"@hexlightning @Shawn_N\n"
+"도발 전업인: @bestpika\n"
+"크로스 드레서 호랑이: @allen0099\n"
 
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
@@ -66,36 +98,4 @@ msgstr " %d 초"
 #, python-format
 msgid " %d分 %d秒"
 msgstr " %d 분 %d 초"
-
-#: hexlightning/plugins/user_command/about/reception/text.py:18
-msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
-"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
-"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
-"主要開發人員：\n"
-"@hexlightning @Shawn_N\n"
-"主要嘴砲人員：@bestpika\n"
-"看板虎(娘)：@allen0099\n"
-msgstr "이 봇은 <a href=\"https://t.me/hexuniverse\">hex</a> 생산물입니다\n"
-"많은 정령들은 함께 유지합니다, 우리를 후원하고 싶다면, @orangetofu 에서 연락하세요 \n\n"
-"이 봇을 사용한다면 우리 <code>헥스 협의</code>를 동의됩니다 (/eula 에서 읽어보세요)\n"
-"주요 개발자:\n"
-"@hexlightning @Shawn_N\n"
-"도발 전업인: @bestpika\n"
-"크로스 드레서 호랑이: @allen0099\n"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "pong"
-msgstr "pong"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "崩！"
-msgstr "펑!"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "卡翹！"
-msgstr "카치아오!"
-
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
-msgid "我誰"
-msgstr "난 누구야"
 
