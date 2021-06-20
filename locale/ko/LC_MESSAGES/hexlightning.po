@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-06-20 09:12+0000\n"
-"PO-Revision-Date: 2021-06-20 09:18\n"
+"POT-Creation-Date: 2021-06-20 09:50+0000\n"
+"PO-Revision-Date: 2021-06-20 09:59\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -25,19 +25,19 @@ msgid "歡迎使用 hexlightning bot\n"
 "@hexlightning @Shawn_N\n"
 msgstr ""
 
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "pong"
 msgstr "pong"
 
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "崩！"
 msgstr "펑!"
 
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "卡翹！"
 msgstr "카치아오!"
 
-#: hexlightning/plugins/user_command/ping/reception/text.py:15
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "我誰"
 msgstr "난 누구야"
 
