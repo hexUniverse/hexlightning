@@ -5,15 +5,15 @@ msgstr ""
 "POT-Creation-Date: 2021-07-03 06:06+0000\n"
 "PO-Revision-Date: 2021-07-03 06:08\n"
 "Last-Translator: Automatically generated\n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"Language-Team: Chinese Traditional, Hong Kong\n"
+"Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: hexlightning\n"
 "X-Crowdin-Project-ID: 362215\n"
-"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-Language: zh-HK\n"
 "X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
 "X-Crowdin-File-ID: 503\n"
 
@@ -25,29 +25,23 @@ msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
 "@hexlightning @Shawn_N\n"
 "主要嘴砲人員：@bestpika\n"
 "看板虎(娘)：@allen0099\n"
-msgstr "本 Bot 隶属于 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
-"并由多名小精灵共同维护，若有合作需求请洽 @orangetofu \n\n"
-"使用本 Bot 视同同意 <code>海克斯真香协议</code> (详情 /eula 查看)\n"
-"主要开发人员：\n"
-"@hexlightning @Shawn_N\n"
-"主要口炮人员： @bestpika\n"
-"看板虎(娘)：@allen0099\n"
+msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "pong"
-msgstr "pong"
+msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "崩！"
-msgstr "崩！"
+msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "卡翹！"
-msgstr "卡翘！"
+msgstr ""
 
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "我誰"
-msgstr "我谁"
+msgstr ""
 
 #: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:22
 msgid "若要使用本 bot 須先同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
@@ -70,26 +64,26 @@ msgstr ""
 #: hexlightning/functions/utils/chat_update_func.py:76
 #: hexlightning/functions/utils/chat_update_func.py:108
 msgid "已更新"
-msgstr "已更新"
+msgstr ""
 
 #: hexlightning/functions/utils/chat_update_func.py:80
 msgid "新增資料發生錯誤，請在群組內回報。"
-msgstr "新增数据发生错误，请在群组内回报。"
+msgstr ""
 
 #: hexlightning/functions/utils/chat_update_func.py:85
 msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
-msgstr "您不是管理员，因此无法使用此命令，如果您是新任用管理员，请找任用您的人或群组拥有者发送此命令。"
+msgstr ""
 
 #: hexlightning/functions/utils/chat_update_func.py:98
 #, python-brace-format
 msgid "請等待<code>{transform}</code> 後再使用此指令。"
-msgstr "请等待 <code>{transform}</code> 后再使用此命令。"
+msgstr ""
 
 #: hexlightning/functions/utils/human_readable_time.py:20
 #: hexlightning/functions/utils/human_readable_time.py:24
 #, python-format
 msgid " %d天"
-msgstr " %d天"
+msgstr ""
 
 #: hexlightning/functions/utils/human_readable_time.py:26
 #: hexlightning/functions/utils/human_readable_time.py:34
@@ -97,23 +91,23 @@ msgstr " %d天"
 #: hexlightning/functions/utils/human_readable_time.py:38
 #, python-format
 msgid " %d小時"
-msgstr " %d小时"
+msgstr ""
 
 #: hexlightning/functions/utils/human_readable_time.py:40
 #: hexlightning/functions/utils/human_readable_time.py:45
 #: hexlightning/functions/utils/human_readable_time.py:52
 #, python-format
 msgid " %d分"
-msgstr " %d分"
+msgstr ""
 
 #: hexlightning/functions/utils/human_readable_time.py:47
 #: hexlightning/functions/utils/human_readable_time.py:50
 #, python-format
 msgid " %d秒"
-msgstr " %d秒"
+msgstr ""
 
 #: hexlightning/functions/utils/human_readable_time.py:53
 #, python-format
 msgid " %d分 %d秒"
-msgstr " %d分 %d秒"
+msgstr ""
 
