@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-07-03 06:06+0000\n"
-"PO-Revision-Date: 2021-07-03 06:08\n"
+"POT-Creation-Date: 2021-07-03 07:41+0000\n"
+"PO-Revision-Date: 2021-07-03 07:48\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -48,6 +48,10 @@ msgstr "카치아오!"
 #: hexlightning/plugins/user_command/ping/reception/text.py:18
 msgid "我誰"
 msgstr "난 누구야"
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:22
+msgid "接下來請設定時區，為了顯示正確資訊請先設定時區，接下請點擊下方按鈕傳送您的所在城市方便我們自動設定。"
+msgstr ""
 
 #: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:22
 msgid "若要使用本 bot 須先同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
