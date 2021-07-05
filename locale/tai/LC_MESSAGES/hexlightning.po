@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-07-04 08:38+0000\n"
-"PO-Revision-Date: 2021-07-04 08:43\n"
+"POT-Creation-Date: 2021-07-05 15:08+0000\n"
+"PO-Revision-Date: 2021-07-05 15:14\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Taigi\n"
 "Language: taigi\n"
@@ -43,35 +43,80 @@ msgstr ""
 msgid "我誰"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/a_keyboard.py:16
+#: hexlightning/plugins/service_event/install_wizard/reception/a_keyboard_old.py:16
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:36
 msgid "✅同意"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/a_keyboard.py:20
+#: hexlightning/plugins/service_event/install_wizard/reception/a_keyboard_old.py:20
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:40
 msgid "❌不同意"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:22
+#: hexlightning/plugins/service_event/install_wizard/reception/c_text.py:24
 msgid "接下來請設定時區，為了顯示正確資訊請先設定時區，接下請點擊下方按鈕傳送您的所在城市方便我們自動設定。"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:21
+#: hexlightning/plugins/service_event/install_wizard/reception/c_text.py:27
+#: hexlightning/plugins/service_event/install_wizard/reception/b_keyboard_old.py:11
+msgid "👌 前往設定"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/c_text.py:34
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text_old.py:21
 msgid "若要使用本 bot 須先同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
 "不同意則無法使用。"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:27
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:22
+msgid "請先給予「刪除訊息」權限。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:29
+msgid "歡迎使用 hexlightning bot\n"
+"hexlightning 由多名志願者共同維護，並盡可能提供免費服務。 \n"
+"使用本 Bot 需同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:48
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:19
+msgid "請給予本機器人相應的權限來進行下一步。\n"
+"為了設定需要，本機器人需要最低權限為「刪除訊息」，請前往群組設定。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:50
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:21
+msgid "🔍 檢查"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:23
+msgid "找不到可以設定的群組。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:25
+msgid "你不是該群組的管理員。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text_old.py:27
 msgid "請選擇語言來進行下一步\n"
 "Please Select Language"
 msgstr ""
 
-#: hexlightning/plugins/service_event/new_install/reception/text.py:24
+#: hexlightning/plugins/service_event/new_install/reception/text_.py:24
 msgid "歡迎使用 hexlightning bot\n"
 "hexlightning 由多名志願者共同維護，並盡可能提供免費服務。 \n"
 "使用本 Bot 需同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n\n"
 "主要開發人員：\n"
 "@hexlightning @Shawn_N\n\n"
 "若為匿名管理員請回覆這則訊息輸入 <code>YES</code>"
+msgstr ""
+
+#: hexlightning/plugins/service_event/new_install/reception/text.py:10
+msgid "請選擇語言來進行下一步\n"
+"Please Select Language\n"
+"言語を選択してください"
 msgstr ""
 
 #: hexlightning/functions/utils/chat_update_func.py:76
