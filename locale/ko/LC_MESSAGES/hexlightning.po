@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hexlightning\n"
 "Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
-"POT-Creation-Date: 2021-07-05 15:08+0000\n"
-"PO-Revision-Date: 2021-07-05 15:14\n"
+"POT-Creation-Date: 2021-07-18 07:36+0000\n"
+"PO-Revision-Date: 2021-07-18 07:40\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -97,12 +97,22 @@ msgstr ""
 msgid "🔍 檢查"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:23
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:22
 msgid "找不到可以設定的群組。"
 msgstr ""
 
-#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:25
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:24
 msgid "你不是該群組的管理員。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:26
+msgid "為了顯示正確資訊請先設定時區。設定時區有兩種方式。\n"
+"1. 點擊下方按鈕傳送您的所在城市自動設定。\n"
+"2. 或是您懂的輸入時區格式也可直接輸入，例：<code>Asia/Taipei</code>"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:30
+msgid "📍 傳送所在大略位置"
 msgstr ""
 
 #: hexlightning/plugins/service_event/install_wizard/reception/a_text_old.py:27
