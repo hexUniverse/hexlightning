@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hexlightning\n"
+"Report-Msgid-Bugs-To: tdc@hexelf.dev\n"
+"POT-Creation-Date: 2021-07-18 07:36+0000\n"
+"PO-Revision-Date: 2021-07-18 07:40\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: Japanese\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: hexlightning\n"
+"X-Crowdin-Project-ID: 362215\n"
+"X-Crowdin-Language: ja\n"
+"X-Crowdin-File: /v3/hexlightning/locale/hexlightning.po\n"
+"X-Crowdin-File-ID: 503\n"
+
+#: hexlightning/plugins/user_command/about/reception/text.py:18
+msgid "本 Bot 隸屬於 <a href=\"https://t.me/hexuniverse\">hex</a> 旗下\n"
+"並由多名小精靈共同維護，若有合作需求請洽 @orangetofu \n\n"
+"使用本 Bot 視同同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N\n"
+"主要嘴砲人員：@bestpika\n"
+"看板虎(娘)：@allen0099\n"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "pong"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "崩！"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "卡翹！"
+msgstr ""
+
+#: hexlightning/plugins/user_command/ping/reception/text.py:18
+msgid "我誰"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/a_keyboard_old.py:16
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:36
+msgid "✅同意"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/a_keyboard_old.py:20
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:40
+msgid "❌不同意"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/c_text.py:24
+msgid "接下來請設定時區，為了顯示正確資訊請先設定時區，接下請點擊下方按鈕傳送您的所在城市方便我們自動設定。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/c_text.py:27
+#: hexlightning/plugins/service_event/install_wizard/reception/b_keyboard_old.py:11
+msgid "👌 前往設定"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/c_text.py:34
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text_old.py:21
+msgid "若要使用本 bot 須先同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n"
+"不同意則無法使用。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:22
+msgid "請先給予「刪除訊息」權限。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:29
+msgid "歡迎使用 hexlightning bot\n"
+"hexlightning 由多名志願者共同維護，並盡可能提供免費服務。 \n"
+"使用本 Bot 需同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:48
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:19
+msgid "請給予本機器人相應的權限來進行下一步。\n"
+"為了設定需要，本機器人需要最低權限為「刪除訊息」，請前往群組設定。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/b_text.py:50
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text.py:21
+msgid "🔍 檢查"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:22
+msgid "找不到可以設定的群組。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:24
+msgid "你不是該群組的管理員。"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:26
+msgid "為了顯示正確資訊請先設定時區。設定時區有兩種方式。\n"
+"1. 點擊下方按鈕傳送您的所在城市自動設定。\n"
+"2. 或是您懂的輸入時區格式也可直接輸入，例：<code>Asia/Taipei</code>"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/d_text.py:30
+msgid "📍 傳送所在大略位置"
+msgstr ""
+
+#: hexlightning/plugins/service_event/install_wizard/reception/a_text_old.py:27
+msgid "請選擇語言來進行下一步\n"
+"Please Select Language"
+msgstr ""
+
+#: hexlightning/plugins/service_event/new_install/reception/text_.py:24
+msgid "歡迎使用 hexlightning bot\n"
+"hexlightning 由多名志願者共同維護，並盡可能提供免費服務。 \n"
+"使用本 Bot 需同意 <code>海克斯真香協議</code> (詳情 /eula 查看)\n\n"
+"主要開發人員：\n"
+"@hexlightning @Shawn_N\n\n"
+"若為匿名管理員請回覆這則訊息輸入 <code>YES</code>"
+msgstr ""
+
+#: hexlightning/plugins/service_event/new_install/reception/text.py:10
+msgid "請選擇語言來進行下一步\n"
+"Please Select Language\n"
+"言語を選択してください"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:76
+#: hexlightning/functions/utils/chat_update_func.py:108
+msgid "已更新"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:80
+msgid "新增資料發生錯誤，請在群組內回報。"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:85
+msgid "您不是管理員，無法使用此指令，如果您是新任命的管理員請找任命您的人或群組擁有者發送此指令。"
+msgstr ""
+
+#: hexlightning/functions/utils/chat_update_func.py:98
+#, python-brace-format
+msgid "請等待<code>{transform}</code> 後再使用此指令。"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:20
+#: hexlightning/functions/utils/human_readable_time.py:24
+#, python-format
+msgid " %d天"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:26
+#: hexlightning/functions/utils/human_readable_time.py:34
+#: hexlightning/functions/utils/human_readable_time.py:36
+#: hexlightning/functions/utils/human_readable_time.py:38
+#, python-format
+msgid " %d小時"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:40
+#: hexlightning/functions/utils/human_readable_time.py:45
+#: hexlightning/functions/utils/human_readable_time.py:52
+#, python-format
+msgid " %d分"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:47
+#: hexlightning/functions/utils/human_readable_time.py:50
+#, python-format
+msgid " %d秒"
+msgstr ""
+
+#: hexlightning/functions/utils/human_readable_time.py:53
+#, python-format
+msgid " %d分 %d秒"
+msgstr ""
+
